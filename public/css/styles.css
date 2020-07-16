@@ -1,0 +1,77 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url('../img/restaurant-seamless-pattern.jpg');
+    background-size: auto, cover;
+}
+/*General styles*/
+.general-content{
+    background-color: #f3f3f3 ;
+}
+.btn-principal{
+    background-color: #FEC630 !important;
+    color:#333333 !important;
+    transition: all 300ms;
+}
+.btn-principal:hover{
+    color:#ffffff !important;
+}
+.btn-principal:focus,
+.btn-principal:active {
+    background-color: #FEC630 !important;
+    border-color: #ce9909 !important; /*set the color you want here*/
+}
+.link-primario{
+    color: #ce9909 !important;
+}
+/*Nav styles*/
+.navbar{
+    background-color: #FEC630 !important;
+    border-radius: 0% !important;
+}
+.navbar  a {
+    color: #3d3d3d !important;
+}
+.navbar  a:hover {
+    color: #f3f3f3 !important;
+    transition: all 300ms;
+}
+.dropdown-menu{
+    border-radius: 0% !important;
+}
+.dropdown-content{
+    background-color: #FEC630 !important;
+    color: #333333 !important;
+}
+.dropdown-content .dropdown-item{
+    color: #333333 !important;
+    transition: all 300ms;
+}
+.dropdown-content:hover{
+    background-color: #333333 !important;
+}
+.dropdown-content:hover .dropdown-item{
+    color: #f3f3f3 !important;
+    background-color: #333333 !important;
+    transition: all 300ms;
+}
+
+/* ============================PRODUCT SECTION=======================*/
+.product-container{
+    padding: 20px;
+    box-shadow: 1px 1px 1px 1px #333333;
+}
+.select-section{
+    padding: 20px;
+    background-color: #333333;
+    color: #f3f3f3;
+}
+.btn-bebidas{
+    display: block;
+    margin-top: -21px;
+}
+.badge-precio, .badge-categoria{
+    font-size: 20px;
+}

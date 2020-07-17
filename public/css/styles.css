@@ -28,6 +28,7 @@ body{
 }
 /*Nav styles*/
 .navbar{
+    border-radius: 0% !important;
     background-color: #FEC630 !important;
     border-radius: 0% !important;
 }
@@ -37,6 +38,9 @@ body{
 .navbar  a:hover {
     color: #f3f3f3 !important;
     transition: all 300ms;
+}
+.navbar-logo{
+    background-color: #FEC630;
 }
 .dropdown-menu{
     border-radius: 0% !important;

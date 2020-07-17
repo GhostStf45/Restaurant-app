@@ -22,13 +22,14 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md">
+        <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
-                <a class="navbar-brand" href="{{route('home')}}">
+                <a class="navbar-brand navbar-logo" href="#">
+                    <img src="{{asset('img/logo.jpg')}}" width="40" height="40" alt="">
                     MIKUY
-                </a>
+                  </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon  text-white"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

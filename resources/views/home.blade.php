@@ -35,7 +35,7 @@
             </form>
         </div>
         <div class="col-lg-4">
-            <a href="" class="btn btn-block btn-bebidas btn-principal">Ir a la seccion de bebidas</a>
+        <a href="{{route('drink.index')}}" class="btn btn-block btn-bebidas btn-principal">Ir a la seccion de bebidas</a>
         </div>
     </div>
     <div class="row">

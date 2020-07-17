@@ -19,6 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/{filtrado?}', 'HomeController@sortBy')->name('home.listaCategoria');
 
 /* =================Drinks section==================== */
+Route::get('/drink', 'DrinkController@index')->name('drink.index');
 
 
 

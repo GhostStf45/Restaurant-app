@@ -20,6 +20,10 @@ Route::get('/home/{filtrado?}', 'HomeController@sortBy')->name('home.listaCatego
 
 /* =================Drinks section==================== */
 Route::get('/drink', 'DrinkController@index')->name('drink.index');
+/* ==================Products section ================== */
+Route::get('/product/create', 'ProductController@create')->name('product.create');
+Route::post('/product/save', 'ProductController@store')->name('product.save');
+Route::get('/product/file/{filename}', 'ProductController@getImage')->name('product.file');
 
 
 

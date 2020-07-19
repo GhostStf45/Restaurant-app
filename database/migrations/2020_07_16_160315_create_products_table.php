@@ -20,14 +20,16 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('price');
+            $table->bigInteger('quantity')->nullable();
             $table->string('cover_img')->nullable();
             $table->timestamps();
         });
 
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->foreign('category_id')->references('id')->on('categories');
+           // $table->foreign('category_id')->references('id')->on('categories');
             //$table->foreign('drink_id')->references('id')->on('drinks');
+            //$table->bigInteger('quantity')->nullable();
         });
     }
 

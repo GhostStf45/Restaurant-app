@@ -7,8 +7,54 @@ body{
     background-size: auto, cover;
 }
 /*General styles*/
+h1{font-size: 66px; font-weight: 600; line-height: 80px;}
+h2{font-size: 48px; margin-bottom: 30px;}
+h5{margin-bottom: 0px;}
+.topmargin-lg{margin-top: 60px !important;}
+.topmargin-sm{margin-top: 30px;}
+.topmargin-xs{margin-top: 15px;}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea{
+    border-color: #333333;
+    height: 50px;
+    border-radius: 0% !important;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea{
+    border-color: #ce9909;
+}
+
 .general-content{
     background-color: #f3f3f3 ;
+}
+.title-content{
+    background-color: #FEC630;
+    color: #f3f3f3;
 }
 .btn-principal{
     background-color: #FEC630 !important;
@@ -25,6 +71,16 @@ body{
 }
 .link-primario{
     color: #ce9909 !important;
+}
+#pagination{
+    border-radius: 0%;
+}
+#pagination .page-link{
+    color: #333333;
+}
+#pagination .page-item.active .page-link{
+    background-color: #FEC630;
+    border-color: #FEC630;
 }
 /*Nav styles*/
 .navbar{
@@ -46,7 +102,6 @@ body{
     border-radius: 0% !important;
 }
 .dropdown-content{
-    background-color: #FEC630 !important;
     color: #333333 !important;
 }
 .dropdown-content .dropdown-item{
@@ -60,6 +115,48 @@ body{
     color: #f3f3f3 !important;
     background-color: #333333 !important;
     transition: all 300ms;
+}
+.dropdown-content-main{
+    background-color: #FEC630 !important;
+}
+/*=========Slider==================================*/
+#presentation{
+    background: linear-gradient(to right, rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../img/IMG-PRESENTACION.jpg');
+    background-size: cover;
+    padding-top: 90px;
+    min-height: 500px;
+    color: #ffff;
+    margin-bottom: 20px;
+}
+#presentation p{
+    color:#ffff;
+}
+.content-center{
+    max-width: 800px;
+    margin: 0px auto 60px auto;
+    text-align: center;
+}
+.lema{
+    font-size: 48px;
+    font-style: italic;
+}
+
+/* ===========================================LOGIN SECTION=================================*/
+
+.image-cover-height{
+    height: 100vh !important;
+}
+.login-content{
+    background-color: #f3f3f3;
+    height: 100vh !important;
+}
+.login-card{
+    top: 15%;
+    /*height: 100%;*/
+}
+.header-login{
+    background-color: #333333;
+    color: #f3f3f3;
 }
 
 /* ============================PRODUCT SECTION=======================*/
@@ -78,4 +175,23 @@ body{
 }
 .badge-precio, .badge-categoria{
     font-size: 20px;
+}
+.cover_img_product{
+    overflow: hidden;
+    max-height: 196.15px;
+}
+
+/*=========================MEDIA QUERIES RESPONSIVE======*/
+@media (max-width:850px)
+{
+    .login-card{
+        width: 50% !important;
+    }
+}
+@media (max-width:400px)
+{
+    .login-card{
+        margin: 10px;
+        width: 100% !important;
+    }
 }

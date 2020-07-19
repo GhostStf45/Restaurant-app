@@ -15,7 +15,7 @@ class DrinkController extends Controller
     public function index()
     {
         //
-        $drinks = Drink::take(20)->get();
+        $drinks = Drink::take(20)->paginate(8);
 
         return view('drinks.index', ['allDrinks'=>$drinks]);
     }

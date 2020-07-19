@@ -32,7 +32,7 @@ class HomeController extends Controller
 
 
         $categories = Category::all();
-        $products = Product::take(20)->get();
+        $products = Product::take(20)->paginate(8);
         $select = $request->input('tipo_producto');
         $orderByDateAndAlphabeth= $request->input('ordenar_alfabetica_dia');
         //vincular la bd
@@ -43,15 +43,19 @@ class HomeController extends Controller
             $products = Product::select('products.*')
             ->join('categories', 'categories.id', '=', 'products.category_id')
             ->where('categories.name', $select)
-            ->get();
+            ->paginate(8);
         }
        if($orderByDateAndAlphabeth == 'Platos añadidos recientemente.')
         {
-            $products = Product::orderBy('created_at', 'desc')->get();
+            $products = Product::orderBy('created_at', 'desc')->paginate(8);
         }
         if($orderByDateAndAlphabeth == 'A-Z')
         {
-            $products = Product::orderBy('name', 'ASC')->get();
+            $products = Product::orderBy('name', 'ASC')->paginate(8);
+        }
+        if($orderByDateAndAlphabeth == 'Ordenar por precio mayor-menor')
+        {
+            $products = Product::orderBy('price', 'ASC')->paginate(8);
         }
         return view('home', ['allProducts'=> $products, 'allCategories'=>$categories, 'select' => $select]);
     }

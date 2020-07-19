@@ -3,19 +3,23 @@
 @section('content')
 
 <div class="container general-content product-container">
-    <h2 class="text-center p-2">Bebidas</h2>
-    <div class="row">
+    <div class="col-md-12 title-content p-2">
+        <h2 class="text-center ">Bebidas</h2>
+    </div>
+    <div class="row mt-3">
         <form action="" class="col-lg-12">
             <div class="form-group">
               <label for="">Buscar bebida</label>
               <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
             </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn btn-principal">Buscar</button>
         </form>
     </div>
+     <!--Pagination-->
+    <div id="pagination" class="mt-3 d-flex align-items-center justify-content-md-center">{{$allDrinks->links()}}</div>
     <div class="row">
         @foreach ($allDrinks as $drink)
-        <div class="col-6 my-4 ">
+        <div class="col-3 my-4 ">
                 <div class="card shadow">
                     <img class="card-img-top" src="{{ asset('img/default-drink.png') }}">
                         <div class="card-body">
@@ -28,7 +32,7 @@
                             <p class="card-text">Fecha de publicacion: {{ date('d-m-Y h:m:s', strtotime($drink->created_at))  }}</p>
                         </div>
                         <div class="card-body">
-                            <a href="" class="btn btn-lg  btn-principal">Añadir bebida al carrito</a>
+                            <a href="" class="btn btn-lg  btn-principal"><i class="fas fa-shopping-cart"></i> Añadir bebida al carrito</a>
                         </div>
                 </div>
         </div>

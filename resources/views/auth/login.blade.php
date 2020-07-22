@@ -4,7 +4,7 @@
     <div class="row">
         {{--<div id="presentation" class="col-lg-6 image-cover-height">
         </div>--}}
-        <div id="presentation" class="col-md-12 pl-0 login-content">
+        <div id="presentation" class="col-md-12 pl-0 login-content mb-0">
 
             <div class="card login-card w-25 mx-auto p-3">
                 <div class="card-header header-login">

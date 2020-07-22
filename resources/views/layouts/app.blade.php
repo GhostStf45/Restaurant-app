@@ -8,42 +8,23 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Mikuy') }}</title>
-
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap" rel="stylesheet">
     <script src="{{ asset('fontawesome/js/all.js')}}"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/util.css') }}" rel="stylesheet">
-
-    <!--other libraries-->
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('other_libraries/animate/animate.css')}}">
-    <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{asset('other_libraries/css-hamburgers/hamburgers.min.css')}}">
-    <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{asset('other_libraries/animsition/css/animsition.min.css')}}">
-    <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{asset('other_libraries/select2/select2.min.css')}}">
-    <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href={{asset('other_libraries/daterangepicker/daterangepicker.css')}}">
-    <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href={{asset('css/login.css')}}>
-    <!--===============================================================================================-->
-
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light">
+    <div id='app'>
+        <nav class="navbar navbar-expand-md navbar-light ">
             <div class="container">
-            <a class="navbar-brand navbar-logo" href="{{route('home')}}">
-                    <img src="{{asset('img/logo.jpg')}}" width="40" height="40" alt="">
-                    MIKUY
+                <a class="navbar-brand" href="{{route('home')}}">
+                    <span class="logo-styles"><h3>MIKUY</h3></span>
                   </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon  text-white"></span>
@@ -52,7 +33,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{route('home')}}">
+                                HOME
+                        </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('product.index')}}">
+                                MENÚ
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -75,11 +65,18 @@
                             </div>
                         </li>
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('product.create')}}">
-                                    <i class="fas fa-plus-square fa-2x"></i>
-                                    Crear Producto
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fas fa-arrow-down fa-2x"></i>
+                                    Acciones
                                 </a>
+                                <div class="dropdown-menu dropdown-menu-left dropdown-content-main" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item dropdown-content" href="{{route('product.create')}}"><i class="fas fa-plus-square"></i> Crear Producto</a>
+                                    <a class="dropdown-item dropdown-content" href="{{route('drink.create')}}">
+                                        <i class="fas fa-wine-bottle"></i>
+                                        Crear Bebida
+                                    </a>
+                                </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -101,25 +98,18 @@
                     </ul>
                 </div>
             </div>
+
         </nav>
-
-
         <main>
+
             @yield('content')
         </main>
+
     </div>
+
     <!--Scripts-->
-        <script src="{{asset('other_libraries/jquery/jquery-3.2.1.min')}}"></script>
-    <!--===============================================================================================-->
-        <script src="{{asset('other_libraries/animsition/js/animsition.min.js')}}"></script>
-    <!--===============================================================================================-->
-        <script src="{{asset('other_libraries/select2/select2.min.js')}}"></script>
-    <!--===============================================================================================-->
-        <script src="{{asset('other_libraries/daterangepicker/moment.min.js')}}"></script>
-        <script src="{{asset('other_libraries/daterangepicker/daterangepicker.js')}}"></script>
-    <!--===============================================================================================-->
-        <script src="{{asset('other_libraries/countdowntime/countdowntime.js')}}"></script>
-    <!--===============================================================================================-->
-        <script src="{{asset('js/main.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    @include('sweetalert::alert')
+
 </body>
 </html>

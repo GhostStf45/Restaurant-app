@@ -2,18 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Product;
-
+use App\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+    public function index(Request $request, $select = null)
+    {
+        $category = new Category();
+        $product = new Product();
+        $categories = Category::all();
+        $products = Product::orderBy('created_at', 'desc')->paginate(8);
+        $select = $request->input('tipo_producto');
+        $orderByDateAndAlphabeth= $request->input('ordenar_alfabetica_dia');
+        //vincular la bd
+        $category->name = $select;
+
+        if(isset($select))
+        {
+            $products = Product::select('products.*')
+            ->join('categories', 'categories.id', '=', 'products.category_id')
+            ->where('categories.name', $select)
+            ->paginate(8);
+        }
+       if($orderByDateAndAlphabeth == 'Platos añadidos recientemente.')
+        {
+            $products = Product::orderBy('created_at', 'desc')->paginate(8);
+        }
+       if($orderByDateAndAlphabeth == 'A-Z')
+        {
+            $products = Product::orderBy('name', 'ASC')->paginate(8);
+        }
+        if($orderByDateAndAlphabeth == 'Ordenar por precio mayor-menor')
+        {
+            $products = Product::orderBy('price', 'ASC')->paginate(8);
+        }
+
+        return view('products.index', ['allProducts'=> $products, 'allCategories'=>$categories, 'select' => $select]);
+    }
     public function create()
     {
+
         $categories = Category::all();
         return view('products.create', ['allCategories' => $categories]);
     }
@@ -25,7 +59,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $request->validate([
             'name' => 'required',
             'category' => 'required',
@@ -72,13 +105,16 @@ class ProductController extends Controller
             // Poner nombre unico
             $image_path_name = time().$image_path->getClientOriginalName();
 
-            //Guardar en la carpeta storage (storage/app/users)
+            //Guardar en la carpeta storage (storage/app/images)
             Storage::disk('images')->put($image_path_name, File::get($image_path));
 
             //nombre de la imagen en el objeto
             $product->cover_img = $image_path_name;
         }
+
         $product->save();
+
+        Alert::success('Producto creado correctamente');
 
         return redirect()->route('home');
     }

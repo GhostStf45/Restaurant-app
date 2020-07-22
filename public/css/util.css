@@ -2369,7 +2369,769 @@
 .wrap-pic-cir img {
 	width: 100%;
 }
+/*=========================================================
+TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+=========================================================*/
 
+/*[ Title ]
+-----------------------------------------------------------
+*/
+.tit1 {
+	font-family: Poppins;
+	font-weight: 700;
+	font-size: 90px;
+	line-height: 1.1;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 10px;
+	word-spacing: 10px;
+}
+
+.tit2 {
+	font-family: Courgette;
+	font-size: 30px;
+	line-height: 1.2;
+	color: #d61c22;
+}
+
+.tit3 {
+	font-family: Poppins;
+	font-weight: 700;
+	font-size: 50px;
+	line-height: 1.2;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+}
+
+.tit4 {
+	font-family: Poppins;
+	font-weight: 700;
+	font-size: 50px;
+	line-height: 1.2;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 10px;
+	word-spacing: 6px;
+}
+
+.tit5 {
+	font-family: Poppins;
+	font-weight: 700;
+	font-size: 50px;
+	line-height: 1.2;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 10px;
+	word-spacing: 8px;
+}
+
+.tit6 {
+	font-family: Poppins;
+	font-weight: 700;
+	font-size: 50px;
+	line-height: 1.2;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+	word-spacing: 6px;
+}
+
+.tit7 {
+	font-family: Poppins;
+	font-weight: 500;
+	font-size: 22px;
+	line-height: 1.2;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.tit8 {
+	font-family: Poppins;
+	font-weight: 700;
+	font-size: 50px;
+	line-height: 1.2;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 11px;
+}
+
+.tit9 {
+	font-family: Poppins;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 1.2;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.tit10 {
+	font-family: Poppins;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 1.2;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+/*[ Text ]
+-----------------------------------------------------------
+*/
+.txt1 {
+	font-family: Courgette;
+	font-size: 60px;
+	line-height: 1.1;
+	color: white;
+}
+
+.txt2 {
+	font-family: Poppins;
+	font-weight: 700;
+	font-size: 90px;
+	line-height: 1.1;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 10px;
+}
+
+.txt3 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 1.1;
+	color: #ec1d25;
+	text-transform: uppercase;
+}
+
+.txt4 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.txt5 {
+	font-family: Poppins;
+	font-weight: 500;
+	font-size: 22px;
+	color: #333333;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.txt6 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.txt7 {
+	font-family: Montserrat;
+	font-weight: 700;
+	font-size: 50px;
+	color: #ec1d25;
+	line-height: 1.1;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.txt8 {
+	font-family: Montserrat;
+	font-weight: 700;
+	font-size: 12px;
+	color: #999999;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.txt9 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 15px;
+	color: #555555;
+}
+
+.txt10 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 14px;
+	color: #666666;
+}
+
+.txt11 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 1.1;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.txt12 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 18px;
+	color: #666666;
+	line-height: 1.7;
+}
+
+.txt13 {
+	font-family: Poppins;
+	font-weight: 500;
+	font-size: 18px;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.txt14 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 13px;
+	color: #999999;
+	line-height: 1.7;
+}
+
+.txt15 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 13px;
+	color: #ec1d25;
+	line-height: 1.7;
+}
+
+.txt16 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	color: #555555;
+}
+
+.txt17 {
+	font-family: Noto+Sans;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #999999;
+}
+
+.txt18 {
+	font-family: Noto+Sans;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #cccccc;
+}
+
+.txt19 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 14px;
+	color: #222222;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.txt20 {
+	font-family: Poppins;
+	font-weight: 500;
+	font-size: 18px;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.txt21 {
+	font-family: Poppins;
+	font-weight: 300;
+	font-size: 18px;
+	color: #333333;
+	line-height: 1.4;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.txt22 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 22px;
+	color: #333333;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.txt23 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 13px;
+	color: #666666;
+	line-height: 1.7;
+}
+
+.txt24 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #ec1d25;
+}
+
+.txt25 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #222222;
+}
+
+.txt26 {
+	font-family: Poppins;
+	font-weight: 500;
+	font-size: 15px;
+	color: #333333;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.txt27 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	color: #222222;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.txt28 {
+	font-family: Poppins;
+	font-weight: 500;
+	font-size: 12px;
+	color: #222222;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+}
+
+.txt29 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	color: #999999;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.txt30 {
+	font-family: Montserrat;
+	font-weight: 700;
+	font-size: 39px;
+	color: white;
+	line-height: 1;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.txt31 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	color: white;
+}
+
+.txt32 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	color: #808080;
+	line-height: 1.5;
+}
+
+.txt33 {
+	font-family: Poppins;
+	font-weight: 500;
+	font-size: 22px;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.txt34 {
+	font-family: Poppins;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 1.4;
+	color: #333333;
+	letter-spacing: 2px;
+}
+
+.txt35 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 12px;
+	color: #666666;
+	text-transform: uppercase;
+	line-height: 1.8;
+}
+
+
+/*[ Color ]
+-----------------------------------------------------------
+*/
+.color0 {color: #ec1d25;}
+.color1 {color: #222222;}
+.color2 {color: #cccccc;}
+.color3 {color: #333333;}
+
+.color0-hov:hover {color: #ec1d25;}
+
+
+
+
+/*=========================================================
+SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
+=========================================================*/
+/*[ Margin ]
+-----------------------------------------------------------
+*/
+.m-10 {margin: 10px;}
+
+.m-l--6 {margin-left: -6px;}
+
+/*[ Size ]
+-----------------------------------------------------------
+*/
+.size1 {
+	width: 135px;
+	height: 40px;
+}
+
+.size2 {
+	max-width: 390px;
+}
+
+.size3 {
+	max-width: 513px;
+}
+
+.size4 {
+	width: 150px;
+	height: 60px;
+}
+
+.size5 {
+	width: 157px;
+	height: 60px;
+}
+
+.size6 {
+	width: 255px;
+	height: 60px;
+}
+
+.size7 {
+	width: 143px;
+	height: 60px;
+}
+
+.size8 {
+	width: 190px;
+	height: 60px;
+}
+
+.size9 {
+	width: 173px;
+	height: 60px;
+}
+
+.size10 {
+	width: 50px;
+	height: 100%;
+}
+
+.size11 {
+	width: 80px;
+}
+
+.size12 {
+	width: 100%;
+	height: 50px;
+}
+
+.size13 {
+	width: 150px;
+	height: 40px;
+}
+
+.size14 {
+	width: 118px;
+	height: 118px;
+}
+
+.size15 {
+	max-width: 890px;
+}
+
+.size16 {
+	width: 70px;
+	height: 70px;
+}
+
+.size17 {
+	width: 270px;
+	height: 50px;
+}
+
+.size18 {
+	width: 160px;
+	height: 40px;
+}
+
+.size19 {
+	width: 20px;
+}
+
+.size20 {
+	width: 160px;
+	height: 120px;
+}
+
+.size21 {
+	width: calc(100% - 160px - 28px);
+	min-height: 120px;
+}
+
+.size22 {
+	max-width: 870px;
+}
+
+.size23 {
+	width: 55%;
+}
+
+.size24 {
+	width: 45%;
+}
+
+.size25 {
+	max-width: 520px;
+}
+
+.size26 {
+	max-width: 500px;
+}
+
+.size27 {
+	max-width: 650px;
+}
+
+.size28 {
+	width: calc(100% - 88px);
+}
+
+.size29 {
+	width: 100%;
+	min-height: 150px;
+}
+
+.size30 {
+	max-width: 266px;
+	height: 50px;
+}
+
+.size31 {
+	width: 180px;
+	height: 40px;
+}
+
+.size32 {
+	max-width: 868px;
+}
+
+.size33 {
+	min-height: 616px;
+}
+
+.size34 {
+	min-height: 320px;
+}
+
+.size35 {
+	width: 100%;
+	min-height: 180px;
+}
+
+.size36 {
+	width: 120px;
+	height: 40px;
+}
+
+.size37 {
+	height: 400px;
+}
+
+.size38 {
+	max-width: 190px;
+}
+
+/*[ Background Color ]
+-----------------------------------------------------------
+*/
+.bg0 {background-color: #ec1d25;}
+.bg1 {background-color: #222222;}
+.bg2 {background-color: #111111;}
+
+.bg0-hov:hover {background-color: #ec1d25;}
+
+.bg1-overlay {background-color: rgba(0,0,0,0.35);}
+
+
+/*[ Border ]
+-----------------------------------------------------------
+*/
+.bo1 {border: 1px solid #ebebeb;}
+.bo2 {border: 2px solid #d9d9d9;}
+.bo4 {border: 4px solid #ec1d25;}
+
+.bo5-b {border-bottom: 1px solid #e6e6e6;}
+.bo5-r {border-right: 1px solid #e6e6e6;}
+
+.bo6-r {border-right: 1px solid #808080;}
+
+.bo7 {border: 2px solid #e6e6e6;}
+.bo8 {border: 5px solid white;}
+
+
+/* ------------------------------------ */
+.bo-rad-2 {border-radius: 2px;}
+.bo-rad-3 {border-radius: 3px;}
+.bo-rad-4 {border-radius: 4px;}
+.bo-rad-5 {border-radius: 5px;}
+.bo-rad-7 {border-radius: 7px;}
+.bo-rad-10 {border-radius: 10px;}
+
+.bo-t-rad-2 {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.bo-b-rad-2 {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+
+
+
+
+/*=========================================================
+EFFECT   EFFECT   EFFECT   EFFECT   EFFECT   EFFECT  EFFECT
+=========================================================*/
+
+/*[ wrap-cir-pic ]
+-----------------------------------------------------------
+*/
+.wrap-cir-pic {
+	border-radius: 50%;
+	overflow: hidden;
+}
+.wrap-cir-pic img {
+	width: 100%;
+}
+
+
+/*[ Hover img zoom]
+-----------------------------------------------------------
+*/
+.hov-img-zoom {
+	display: block;
+	overflow: hidden;
+}
+.hov-img-zoom img{
+	width: 100%;
+	-webkit-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+.hov-img-zoom:hover img {
+	-webkit-transform: scale(1.1);
+  	-moz-transform: scale(1.1);
+  	-ms-transform: scale(1.1);
+  	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+
+
+/*[ Position ]
+-----------------------------------------------------------
+*/
+.position1 {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+/*[ Box Shadow ]
+-----------------------------------------------------------
+*/
+
+.shadow1 {
+	box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+	-o-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+	-ms-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.shadow2 {
+  box-shadow: 0 16px 35px 0px rgba(15, 46, 81, 0.2);
+  -moz-box-shadow: 0 16px 35px 0px rgba(15, 46, 81, 0.2);
+  -webkit-box-shadow: 0 16px 35px 0px rgba(15, 46, 81, 0.2);
+  -o-box-shadow: 0 16px 35px 0px rgba(15, 46, 81, 0.2);
+  -ms-box-shadow: 0 16px 35px 0px rgba(15, 46, 81, 0.2);
+}
+
+
+/*[ Gradient ]
+-----------------------------------------------------------
+*/
+.gradient1 {
+  background: -webkit-linear-gradient(rgba(0,0,0,0.6) , rgba(0,0,0,0));
+  background: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0));
+  background: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0));
+  background: linear-gradient(rgba(0,0,0,0.6) , rgba(0,0,0,0));
+}
+
+
+/*[ Background pattern ]
+-----------------------------------------------------------
+*/
+.bg1-pattern {
+	background-image: url(../img/pattern1.png);
+  	background-repeat: repeat;
+}
+
+.bg2-pattern {
+	background-image: url(../img/pattern2.png);
+  	background-repeat: repeat;
+}
+
+.bg3-pattern {
+	background-image: url(../img/pattern3.png);
+  	background-repeat: repeat;
+}
 
 
 /*[ Hover ]

@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Drink;
 use Illuminate\Http\Request;
 
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 class DrinkController extends Controller
 {
     /**
@@ -15,7 +20,7 @@ class DrinkController extends Controller
     public function index()
     {
         //
-        $drinks = Drink::take(20)->paginate(8);
+        $drinks = Drink::orderBy('created_at', 'desc')->paginate(8);
 
         return view('drinks.index', ['allDrinks'=>$drinks]);
     }
@@ -28,6 +33,7 @@ class DrinkController extends Controller
     public function create()
     {
         //
+        return view('drinks.create');
     }
 
     /**
@@ -39,6 +45,66 @@ class DrinkController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|integer',
+            'quantity' => 'required|integer',
+            'description' => 'required',
+            'image' => 'required|image'
+
+        ], [
+            'name.required' => 'El nombre de la bebida es obligatoria',
+            'price.required' => 'El precio es obligatorio',
+            'quantity.required' => 'La cantidad es obligatoria',
+            'description.required' => 'La descripción es obligatoria'
+        ]);
+
+         //conseguir datos del formulario
+         $name = $request->input('name');
+         $price =(int) $request->input('price');
+         $quantity = (int) $request->input('quantity');
+         $description = $request->input('description');
+
+         if($price <= 0 || $quantity <=0)
+         {
+             $price = 2;
+             $quantity = 1;
+         }
+
+         $drink = new Drink();
+
+         //vincular a la base de datos
+        $drink->name = $name;
+        $drink->price = (int) $price;
+        $drink->quantity = (int) $quantity;
+        $drink->description = $description;
+
+        //subir archivo
+        $image_path = $request->file('image');
+        if($image_path)
+        {
+            // Poner nombre unico
+            $image_path_name = time().$image_path->getClientOriginalName();
+
+            //Guardar en la carpeta storage (storage/app/images)
+            Storage::disk('drink_images')->put($image_path_name, File::get($image_path));
+
+            //nombre de la imagen en el objeto
+            $drink->cover_img = $image_path_name;
+        }
+
+        $drink->save();
+
+        Alert::success('Bebida creada correctamente');
+
+        return redirect()->route('drink.index');
+
+
+    }
+     //conseguir la imagen
+     public function getImage($filename){
+        $file = Storage::disk('drink_images')->get($filename);
+        return new Response($file, 200);
     }
 
     /**

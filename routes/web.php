@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/home');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/{filtrado?}', 'HomeController@sortBy')->name('home.listaCategoria');
 
 /* =================Drinks section==================== */
 Route::get('/drink', 'DrinkController@index')->name('drink.index');
+Route::get('/drink/create', 'DrinkController@create')->name('drink.create');
+Route::post('/drink/save', 'DrinkController@store')->name('drink.save');
+Route::get('/drink/file/{filename}', 'DrinkController@getImage')->name('drink.file');
 /* ==================Products section ================== */
+Route::get('/products', 'ProductController@index')->name('product.index');
+Route::get('/products/{filtrado?}', 'ProductController@sortBy')->name('products.listaCategoria');
 Route::get('/product/create', 'ProductController@create')->name('product.create');
 Route::post('/product/save', 'ProductController@store')->name('product.save');
 Route::get('/product/file/{filename}', 'ProductController@getImage')->name('product.file');

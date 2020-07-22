@@ -1,10 +1,70 @@
+
+/* [FONT]
+/////////////////////////////////////////////////////
+
+*/
+/*[ FONT ]
+///////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700');
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url('../fonts/montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: Courgette-Regular;
+  src: url('../fonts/courgette/Courgette-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Light;
+  src: url('../fonts/poppins/Poppins-Light.ttf');
+}
+
+@font-face {
+  font-family: NotoSans-Regular;
+  src: url('../fonts/notosans/NotoSans-Regular.ttf');
+}
+
 *{
     margin: 0px;
     padding: 0px;
 }
 body{
-    background-image: url('../img/restaurant-seamless-pattern.jpg');
-    background-size: auto, cover;
+    background-image:linear-gradient(to right, rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('../img/restaurant-seamless-pattern.jpg');
+    background-attachment: fixed;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Montserrat-Regular, sans-serif;
 }
 /*General styles*/
 h1{font-size: 66px; font-weight: 600; line-height: 80px;}
@@ -48,6 +108,27 @@ input[type="number"]:focus,
 textarea{
     border-color: #ce9909;
 }
+a{
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: #FEC630;
+}
+p {
+	font-family: Montserrat;
+    font-weight: 400;
+}
+.btn2{
+    background-color: #f3f3f3 !important;
+    color: #222222;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+.btn2:hover {
+    background-color: #FEC630 !important;
+    color: white;
+}
 
 .general-content{
     background-color: #f3f3f3 ;
@@ -72,6 +153,17 @@ textarea{
 .link-primario{
     color: #ce9909 !important;
 }
+.ab-c-m {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 #pagination{
     border-radius: 0%;
 }
@@ -84,13 +176,29 @@ textarea{
 }
 /*Nav styles*/
 .navbar{
-    border-radius: 0% !important;
-    background-color: #FEC630 !important;
-    border-radius: 0% !important;
+    border-radius: 0%;
+    border-top: 10px solid #333333;
+    height: 100px;
+    background: rgba(234, 179, 16, 0.9);
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+.navbar li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .navbar  a {
     color: #3d3d3d !important;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 15px;
 }
+.header-fixed .navbar > li > a {
+    color: #222222;
+  }
 .navbar  a:hover {
     color: #f3f3f3 !important;
     transition: all 300ms;
@@ -126,7 +234,6 @@ textarea{
     padding-top: 90px;
     min-height: 500px;
     color: #ffff;
-    margin-bottom: 20px;
 }
 #presentation p{
     color:#ffff;
@@ -139,6 +246,30 @@ textarea{
 .lema{
     font-size: 48px;
     font-style: italic;
+}
+.logo-styles{
+    font-family: 'Courgette';
+}
+/*[PRESENTATION]
+////////////////////////////////////////////////////////////////////////*/
+
+.tit2{
+    color: #FEC630 !important;
+}
+/*[INTRO]
+//////////////////////////////////////////////////////////////////////*/
+.title_logo{
+    font-family: Courgette, sans-serif !important;
+}
+.header-intro {
+    background-attachment: fixed;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hov-img-zoom {
+    display: block;
+    overflow: hidden;
 }
 
 /* ===========================================LOGIN SECTION=================================*/
@@ -161,7 +292,6 @@ textarea{
 
 /* ============================PRODUCT SECTION=======================*/
 .product-container{
-    padding: 20px;
     box-shadow: 1px 1px 1px 1px #333333;
 }
 .select-section{
@@ -176,10 +306,30 @@ textarea{
 .badge-precio, .badge-categoria{
     font-size: 20px;
 }
+.product-card{
+    transition: all 300ms;
+}
+.product-card:hover{
+    transform: scale(1.1, 1.1);
+}
 .cover_img_product{
     overflow: hidden;
-    max-height: 196.15px;
+    max-height: 94px;
 }
+.bg-title-page {
+    width: 100%;
+    min-height: 545px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+}
+/*========================================DRINK SECTION ============================*/
+.drink-card{
+    max-height: 240px;
+}
+
 
 /*=========================MEDIA QUERIES RESPONSIVE======*/
 @media (max-width:850px)

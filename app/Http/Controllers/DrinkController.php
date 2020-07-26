@@ -17,11 +17,23 @@ class DrinkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $search =null)
     {
-        //
-        $drinks = Drink::orderBy('created_at', 'desc')->paginate(8);
 
+        $search = $request->input('search');
+
+        if(!empty($search))
+        {
+            //buscar el nombre de la bebida
+            $drinks = Drink::where('name', 'LIKE', '%'.$search.'%')
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(5);
+        }
+        else
+        {
+            //ordenar listado de bebidas por el mas reciente
+        $drinks = Drink::orderBy('created_at', 'desc')->paginate(8);
+        }
         return view('drinks.index', ['allDrinks'=>$drinks]);
     }
 

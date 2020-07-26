@@ -17,11 +17,16 @@ Route::redirect('/', '/home');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+//--------------------PERFIL DEL USUARIO-----------------------------------------
+Route::get('/perfil', 'UserController@config')->name('profile');
+Route::put('/perfil/update', 'UserController@update')->name('user.update');
+
 /* =================Drinks section==================== */
 Route::get('/drink', 'DrinkController@index')->name('drink.index');
 Route::get('/drink/create', 'DrinkController@create')->name('drink.create');
 Route::post('/drink/save', 'DrinkController@store')->name('drink.save');
 Route::get('/drink/file/{filename}', 'DrinkController@getImage')->name('drink.file');
+Route::get('/drink/{search?}', 'DrinkController@index')->name('drink.search');
 /* ==================Products section ================== */
 Route::get('/products', 'ProductController@index')->name('product.index');
 Route::get('/products/{filtrado?}', 'ProductController@sortBy')->name('products.listaCategoria');

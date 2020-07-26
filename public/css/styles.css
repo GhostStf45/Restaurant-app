@@ -96,9 +96,10 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"],
+select,
 textarea{
     border-color: #333333;
-    height: 50px;
+    height: 40px;
     border-radius: 0% !important;
 }
 input[type="text"]:focus,
@@ -118,6 +119,9 @@ a:hover {
 p {
 	font-family: Montserrat;
     font-weight: 400;
+}
+.bg-primary{
+    background-color: #FEC630;
 }
 .btn2{
     background-color: #f3f3f3 !important;
@@ -174,7 +178,9 @@ p {
     background-color: #FEC630;
     border-color: #FEC630;
 }
-/*Nav styles*/
+/*[ Nav Styles ]
+///////////////////////////////////////////////////////////
+*/
 .navbar{
     border-radius: 0%;
     border-top: 10px solid #333333;
@@ -218,6 +224,7 @@ p {
 }
 .dropdown-content:hover{
     background-color: #333333 !important;
+
 }
 .dropdown-content:hover .dropdown-item{
     color: #f3f3f3 !important;
@@ -227,7 +234,49 @@ p {
 .dropdown-content-main{
     background-color: #FEC630 !important;
 }
-/*=========Slider==================================*/
+.animate {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+}
+@keyframes slideIn {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    100% {
+      transform:translateY(0rem);
+      opacity: 1;
+    }
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes slideIn {
+    0% {
+      -webkit-transform: transform;
+      -webkit-opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      -webkit-opacity: 1;
+    }
+    0% {
+      -webkit-transform: translateY(1rem);
+      -webkit-opacity: 0;
+    }
+  }
+  .slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+  }
+
+/*[ Slider ]
+///////////////////////////////////////////////////////////
+*/
 #presentation{
     background: linear-gradient(to right, rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../img/IMG-PRESENTACION.jpg');
     background-size: cover;
@@ -272,7 +321,9 @@ p {
     overflow: hidden;
 }
 
-/* ===========================================LOGIN SECTION=================================*/
+/*[ Login Section ]
+///////////////////////////////////////////////////////////
+*/
 
 .image-cover-height{
     height: 100vh !important;
@@ -290,7 +341,9 @@ p {
     color: #f3f3f3;
 }
 
-/* ============================PRODUCT SECTION=======================*/
+/*[ Product Section ]
+///////////////////////////////////////////////////////////
+*/
 .product-container{
     box-shadow: 1px 1px 1px 1px #333333;
 }
@@ -325,13 +378,34 @@ p {
     background-position: center 0;
     background-size: cover;
 }
-/*========================================DRINK SECTION ============================*/
+/*[ DRINK SECTION ]
+///////////////////////////////////////////////////////////
+*/
 .drink-card{
     max-height: 240px;
 }
 
+/*[ PROFILE SECTION ]
+///////////////////////////////////////////////////////////
+*/
+.profile-group{
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    min-height: 400px;
+}
+.card-profile{
+    border-radius: 20px;
+}
+.btn-group-profile{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-/*=========================MEDIA QUERIES RESPONSIVE======*/
+/*[ MEDIA QUERIES ]
+///////////////////////////////////////////////////////////
+*/
 @media (max-width:850px)
 {
     .login-card{

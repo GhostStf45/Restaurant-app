@@ -1,35 +1,17 @@
+'use strict'
 
-(function ($) {
-    "use strict";
+/* ======================CARD FORM SELECT LOOP =========================================== */
 
+function quantity(amount, select, fromNumber){
+    var select = document.getElementById(select);
+    for (var i = 0; i < amount; i++){
+        select.options[select.options.length] = new Option(i+fromNumber, i);
+      }
+  }
 
-    /*==================================================================
-    [ Focus input ]*/
-    $('.input100').each(function(){
-        $(this).on('blur', function(){
-            if($(this).val().trim() != "") {
-                $(this).addClass('has-val');
-            }
-            else {
-                $(this).removeClass('has-val');
-            }
-        })
-    })
-    /*==================================================================
-    [ Show pass ]*/
-    var showPass = 0;
-    $('.btn-show-pass').on('click', function(){
-        if(showPass == 0) {
-            $(this).next('input').attr('type','text');
-            $(this).addClass('active');
-            showPass = 1;
-        }
-        else {
-            $(this).next('input').attr('type','password');
-            $(this).removeClass('active');
-            showPass = 0;
-        }
+  //years
+  quantity(5,'card_year',2020);
 
-    });
+  //months
+  quantity(12,'card_month',1);
 
-})(jQuery);

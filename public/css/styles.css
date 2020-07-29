@@ -147,11 +147,12 @@ p {
     transition: all 300ms;
 }
 .btn-principal:hover{
+    background-color: #d1aa40 !important;
     color:#ffffff !important;
 }
 .btn-principal:focus,
 .btn-principal:active {
-    background-color: #FEC630 !important;
+    background-color: #c7a64c !important;
     border-color: #ce9909 !important; /*set the color you want here*/
 }
 .link-primario{
@@ -178,6 +179,7 @@ p {
     background-color: #FEC630;
     border-color: #FEC630;
 }
+
 /*[ Nav Styles ]
 ///////////////////////////////////////////////////////////
 */

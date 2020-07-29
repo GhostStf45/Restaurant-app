@@ -8,8 +8,23 @@
                 <div class="card-img-top bg-white mt-4 "><img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="user-image" class="d-block mx-auto" width="220px" height="220px"></div>
                 <div class="card-body text-center">
                   <h5 class="card-title mt-2">{{Auth::user()->name}} {{Auth::user()->last_name}}</h5>
-                  <p class="card-text mt-2">Administrator</p>
-                  <a name="" id="" class="btn2 btn-lg btn-principal mt-2" href="#" role="button"> Editar imagen</a>
+                  <p class="card-text mt-2">
+                    <span class="d-block">
+                        Administrator
+                    </span>
+                    @if(Auth::user()->state == 'activated')
+                      <span class="badge badge-success">
+                          Activo
+                      </span>
+                    @else
+                        <span class="badge badge-warning">
+                            Suspendido
+                        </span>
+                    @endif
+
+                  </p>
+
+                  <a name="" id="" class="btn btn-principal mt-2 " href="#" role="button"> Editar imagen</a>
                 </div>
 
             </div>
@@ -78,7 +93,7 @@
                     <div class="form-group col-md-12">
                         <div class="btn-group-profile">
                             <button type="submit" class="btn btn-principal">Actualizar mi cuenta</button>
-                            <a name="" id="" class="link-primario" href="#">Actualizar contraseña</a>
+                            <a name="" id="" class="link-primario" href="{{route('password.request')}}">Actualizar contraseña</a>
                         </div>
 
                     </div>
@@ -101,21 +116,56 @@
                             </button>
                             </div>
                             <div class="modal-footer">
-                                <form action="" method="post" class="col-lg-12 col-md-12">
+                                <!--=================PAYMENT CARD FORM ===================================-->
+                            <form action="{{route('user.card.save')}}" method="post" id ="creditCardForm" class="col-lg-12 col-md-12">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="PUT">
                                     <div class="row">
                                         <div class="form-group col-lg-12 col-md-12">
-                                            <label for="name_credit_card"> Nombre</label>
-                                            <input type="text" class="form-control" id="" name="card_name" placeholder="Visa">
+                                            <label for="card_type">Tipo</label>
+                                        <select class="form-control @error('card_type') is-invalid @enderror"  name="card_type" id="card_type">
+                                                @if (Auth::user()->card_type == 'Credito')
+                                                        <option>{{Auth::user()->card_type}}</option>
+                                                        <option>Debito</option>
+                                                @else
+                                                        <option>{{Auth::user()->card_type}}</option>
+                                                        <option>Credito</option>
+                                                @endif
+                                              </select>
+                                            @error('card_type')
+                                              <span class="invalid-feedback" role="alert">
+                                                  <strong>{{ $message }}</strong>
+                                              </span>
+                                          @enderror
                                         </div>
                                         <div class="form-group col-lg-12 col-md-12">
-                                            <label for="card_number"><i class="far fa-credit-card"></i> Numero de la tarjeta de credito</label>
-                                            <input type="text" class="form-control" id="" name="card_number" placeholder="0000 0000 0000 0000">
+                                            <label for="card_name">Nombre</label>
+                                            <div class="btn-group colors" data-toggle="buttons">
+                                                <label class="btn btn-light active mr-1">
+                                                  <i class="fab fa-cc-visa fa-2x"></i> Visa
+                                                  <input type="radio" class="card_name" name="card_name_check" value="visa_option" autocomplete="off">
+                                                </label>
+                                                <label class="btn btn-light">
+                                                    <i class="fab fa-cc-mastercard fa-2x"></i> MasterCard
+                                                    <input type="radio" class="card_name" name="card_name_check" value="mastercard_option" autocomplete="off">
+                                                </label>
+                                            </div>
+                                        <input type="text" class="form-control @error('card_name_value') is-invalid @enderror" value="{{ Auth::user()->card_name ? Auth::user()->card_name : ''}}" id="card_name_checked" name="card_name_value" placeholder="Visa" >
+                                            @error('card_name_value')
+                                              <span class="invalid-feedback" role="alert">
+                                                  <strong>{{ $message }}</strong>
+                                              </span>
+                                            @enderror
                                         </div>
-                                        <div class="form-group col-lg-4 col-md-4">
-                                              <label for="">Mes</label>
-                                              <select class="form-control" name="card_month" id="card_month">
 
-                                              </select>
+                                        <div class="form-group col-lg-12 col-md-12">
+                                            <label for="card_number"><i class="far fa-credit-card"></i> Numero de la tarjeta de credito</label>
+                                            <input type="text" class="form-control @error('card_number') is-invalid @enderror" value="{{ Auth::user()->card_number ? Auth::user()->card_number : ''}}" name="card_number" placeholder="0000 0000 0000 0000">
+                                            @error('card_number')
+                                              <span class="invalid-feedback" role="alert">
+                                                  <strong>{{ $message }}</strong>
+                                              </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-lg-4 col-md-4">
                                             <label for="car_year">Año</label>
@@ -123,13 +173,27 @@
                                                 </select>
                                         </div>
                                         <div class="form-group col-lg-4 col-md-4">
+                                              <label for="">Mes</label>
+                                              <select class="form-control" name="card_month" id="card_month">
+                                              </select>
+                                        </div>
+                                        <div class="form-group col-lg-12 col-md-12">
+                                            <input type="text" class="form-control @error('expiredDate') is-invalid @enderror" value="{{ Auth::user()->card_date_expired ? Auth::user()->card_date_expired : ''}}" name="expiredDate" id="expiredDate">
+                                            @error('expiredDate')
+                                              <span class="invalid-feedback" role="alert">
+                                                  <strong>{{ $message }}</strong>
+                                              </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group col-lg-4 col-md-4">
                                             <label for="">CVV/CVC</label>
-                                            <input type="text" class="form-control" name="card_cvc" id="card_cvc" placeholder="123">
+                                            <input type="text" class="form-control" name="card_cvc" id="card_cvc" value="{{ Auth::user()->card_cv ? Auth::user()->card_cv : ''}}" placeholder="123">
                                         </div>
 
                                     </div>
 
-                                    <button type="submit" class="btn btn-principal">Guardar cambios</button>
+                                    <button type="submit" id="btnCardSave" class="btn btn-principal">Guardar cambios</button>
                                 </form>
                                 <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>-->
                             </div>
@@ -140,6 +204,5 @@
             </div>
         </div>
     </div>
-
 </div>
 @endsection

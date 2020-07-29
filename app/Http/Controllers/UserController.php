@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 class UserController extends Controller
@@ -56,6 +57,41 @@ class UserController extends Controller
     }
     public function createCard(Request $request)
     {
+        $user = \Auth::user();
 
+        $validate = $this->validate($request,[
+             'card_type'=>'required',
+             'card_name_value' => 'required',
+             'card_number' => 'required|integer',
+             'expiredDate' => 'required',
+             'card_cvc' => 'required|integer|max:999'
+         ]);
+
+
+
+         //Recoger datos del formulario
+        $card_type = $request->input('card_type');
+        $card_name_value = $request->input('card_name_value');
+        $card_number = $request->input('card_number');
+        $expiredDate = $request->input('expiredDate');
+        $parseDateExpired = Carbon::parse($expiredDate)->format('Y-m-d');
+        $card_cvc = $request->input('card_cvc');
+
+
+
+        //Asignar valores al objeto de usuario
+        $user->card_type = $card_type;
+        $user->card_name = $card_name_value;
+        $user->card_number = $card_number;
+        $user->card_date_expired = $parseDateExpired;
+        $user->card_cv = $card_cvc;
+
+        $user->update();
+
+        Alert::success('Tarjeta guardada correctamente.');
+
+        return redirect()->route('profile');
+
+        //return response()->json($user,200);
     }
 }

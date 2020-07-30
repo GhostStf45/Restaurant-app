@@ -35,6 +35,11 @@ Route::get('/product/create', 'ProductController@create')->name('product.create'
 Route::post('/product/save', 'ProductController@store')->name('product.save');
 Route::get('/product/file/{filename}', 'ProductController@getImage')->name('product.file');
 
+/* =====================CONTACT SECTION =================================================== */
+Route::get('/contact', 'AdviceController@createAdvice')->name('advice.create');
+Route::post('/contact/save', 'AdviceController@saveAdvice')->name('advice.save');
+
+
 
 
 

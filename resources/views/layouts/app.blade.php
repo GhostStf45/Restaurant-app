@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('drink.index')}}">
+                            <a class="nav-link" href="{{route('advice.create')}}">
                                 CONTACTANOS
                             </a>
                         </li>

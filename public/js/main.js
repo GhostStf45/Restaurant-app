@@ -17,16 +17,17 @@
              $(adviceChecked).attr("value", "");
          }
      });
-
-/*===============================================CARD FORM ==========================================================*/
-    /* CARD FORM SELECT LOOP */
-
-    function quantity(amount, select, fromNumber){
+     quantity(5, 'rating', 1);
+     function quantity(amount, select, fromNumber){
         var select = document.getElementById(select);
         for (let i = 0; i < amount; i++){
             select.options[select.options.length] = new Option(i+fromNumber, i+fromNumber);
         }
     }
+
+/*===============================================CARD FORM ==========================================================*/
+    /* CARD FORM SELECT LOOP */
+
 
     //years
     quantity(5,'card_year',2020);

@@ -34,12 +34,21 @@ Route::get('/products/{filtrado?}', 'ProductController@sortBy')->name('products.
 Route::get('/product/create', 'ProductController@create')->name('product.create');
 Route::post('/product/save', 'ProductController@store')->name('product.save');
 Route::get('/product/file/{filename}', 'ProductController@getImage')->name('product.file');
+Route::get('/product/{id}', 'ProductController@getProduct')->name('product.detail');
 
 /* =====================CONTACT SECTION =================================================== */
 Route::get('/contact', 'AdviceController@createAdvice')->name('advice.create');
 Route::post('/contact/save', 'AdviceController@saveAdvice')->name('advice.save');
 
+/* =====================COMMENT SECTION =================================================== */
+Route::post('/comment/save', 'CommentController@save')->name('comment.save');
 
 
 
 
+
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

@@ -123,4 +123,10 @@ class ProductController extends Controller
         $file = Storage::disk('images')->get($filename);
         return new Response($file, 200);
     }
+    public function getProduct($id)
+    {
+        $product = Product::find($id);
+        $avg = $product->comments()->avg('rating');
+        return view('products.detail', ['product'=> $product, 'avg' => $avg]);
+    }
 }

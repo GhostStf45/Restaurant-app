@@ -61,7 +61,7 @@
                 <div class="blo3 flex-w flex-col-l-sm m-b-30">
                     <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
                         @if($product->cover_img)
-                            <a href="#"><img src="{{ url('/product/file/'.$product->cover_img)}}" class="cover_img_product" alt="IMG-MENU"></a>
+                    <a href="{{route('product.detail', ['id' => $product->id])}}"><img src="{{ url('/product/file/'.$product->cover_img)}}" class="cover_img_product" alt="IMG-MENU"></a>
                         @endif
 
                     </div>

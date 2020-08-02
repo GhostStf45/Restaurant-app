@@ -44,6 +44,7 @@ Route::post('/contact/save', 'AdviceController@saveAdvice')->name('advice.save')
 
 /* =====================COMMENT SECTION =================================================== */
 Route::post('/comment/save', 'CommentController@save')->name('comment.save');
+Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.delete');
 
 
 

@@ -11,31 +11,33 @@
                     </div>
                 </div>
                 <div class="details col-md-6">
-                <h3 class="product-title">{{$product->name}}</h3>
-                    <div class="rating">
-                        <div class="stars">
+                    <h3 class="product-title">{{$product->name}}</h3>
+                        <div class="rating">
                             <div class="stars">
-                                @for ($i = 0; $i < 5; ++$i)
-                                    <span class="fa fa-star {{ $avg<=$i?'':'checked' }}" aria-hidden="true"></span>
-                                @endfor
+                                <div class="stars">
+                                    @for ($i = 0; $i < 5; ++$i)
+                                        <span class="fa fa-star {{ $avg<=$i?'':'checked' }}" aria-hidden="true"></span>
+                                    @endfor
+                                </div>
                             </div>
+                            <span class="review-no">{{count($product->comments)}} Reseñas </span>
                         </div>
-                        <span class="review-no">{{count($product->comments)}} Reseñas </span>
-                    </div>
-                    <p class="product-description">{{$product->description}}</p>
-                <h4 class="price">Precio:  <span>S/.{{$product->price}}</span></h4>
-                    <div class="action">
-                        <button class="add-to-cart btn btn-default" type="button">Añadir al carrito</button>
-                    </div>
+                        <p class="product-description">{{$product->description}}</p>
+                    <h4 class="price">Precio:  <span>S/.{{$product->price}}</span></h4>
+                        <div class="action">
+                            <button class="add-to-cart btn btn-default" type="button">Añadir al carrito</button>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row d-flex mt-100 mb-100 mt-4">
         <div class="col-lg-12">
-            <div class="card card_comment">
+            <div class="card card_comment shadow ">
+                <div class="card-header bg-dark">
+                    <h4 class="card-title  card-title_comment text-center">Seccion de comentarios</h4>
+                </div>
                 <div class="card-body card-body_comment ">
-                    <h4 class="card-title card-title_comment text-center">Seccion de comentarios</h4>
                 <form method="post" action="{{route('comment.save')}}" class="mb-3 mt-2 row">
                         @csrf
                         <input type="hidden" name="product_id" value="{{$product->id}}">
@@ -71,7 +73,7 @@
                     <div class="d-flex flex-row comment-row m-t-0">
                         <div class="p-2"><img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="user" width="50" class="rounded-circle"></div>
                         <div class="comment-text w-100">
-                            <h6 class="font-medium">{{$comment->user->name}}</h6>
+                            <h6 class="font-medium font-weight-bolder">{{$comment->user->name}} <span class="text-muted float-right">{{\FormatTime::LongTimeFilter($comment->created_at)}}</span></h6>
                                 <div class="rating">
                                     <div class="stars">
                                         @for ($i = 0; $i < 5; ++$i)
@@ -84,9 +86,9 @@
 
                                 </span>
 
-                            <div class="comment-footer"> <span class="text-muted float-right">{{\FormatTime::LongTimeFilter($comment->created_at)}}</span>
+                            <div class="comment-footer">
                                 @if(Auth::check() && ($comment->user_id == Auth::user()->id || $comment->product->user_id == Auth::user()->id))
-                                    <a href="" class="btn btn-sm btn-danger">Eliminar comentario</a>
+                                <a href="{{route('comment.delete', ['id' => $comment->id])}}" class="btn btn-danger">Eliminar comentario</a>
                                 @endif
                         </div>
                     </div>

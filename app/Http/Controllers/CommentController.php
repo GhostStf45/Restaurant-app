@@ -45,4 +45,21 @@ class CommentController extends Controller
          //Redireccion
          return redirect()->route('product.detail', ['id' => $product_id]);
     }
+    public function delete($id){
+        //Conseguir datos del usuario identificado
+        $user = \Auth::user();
+
+        //Conseguir objeto del comentario
+        $comment = Comment::find($id);
+
+        //Comprobar si soy el dueño del comentario o de la publicacion
+        if($user && ($comment->user_id == $user->id || $comment->product->user_id == $user->id)){
+            $comment->delete();
+            Alert::success('¡Comentario eliminado correctamente!');
+            return redirect()->route('product.detail', ['id' => $comment->product->id]);
+        }else{
+            Alert::warning('Comentario no eliminado correctamente');
+            return redirect()->route('product.detail', ['id' => $comment->product->id]);
+        }
+    }
 }

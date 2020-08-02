@@ -23,6 +23,8 @@ class ProductController extends Controller
         //vincular la bd
         $category->name = $select;
 
+        $avg = $product->comments()->avg('rating');
+
         if(isset($select))
         {
             $products = Product::select('products.*')
@@ -43,7 +45,7 @@ class ProductController extends Controller
             $products = Product::orderBy('price', 'ASC')->paginate(8);
         }
 
-        return view('products.index', ['allProducts'=> $products, 'allCategories'=>$categories, 'select' => $select]);
+        return view('products.index', ['allProducts'=> $products, 'allCategories'=>$categories, 'select' => $select, 'avg' => $avg]);
     }
     public function create()
     {

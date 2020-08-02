@@ -74,10 +74,22 @@
                         <span class="txt23">
                             {{ $product->categories->name }}
                         </span>
-
-                        <span class="txt22 m-t-20">
+                        <span class="txt22">
                             S/.{{ $product->price }}
                         </span>
+                        <div class="details">
+                            <div class="rating">
+                                <div class="stars">
+                                    <div class="stars">
+                                        @for ($i = 0; $i < 5; ++$i)
+                                            <span class="fa fa-star {{ $avg<=$i?'':'checked' }}" aria-hidden="true"></span>
+                                        @endfor
+                                    </div>
+                                </div>
+                                <span class="review-no">{{count($product->comments)}} Reseñas </span>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="btn-group">
                         <a href="#" class="btn btn-sm btn-success p-2 mr-2"><i class="fas fa-shopping-cart"></i> Añadir al carrito</a>

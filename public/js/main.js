@@ -1,7 +1,10 @@
 'use strict'
 
   $(document).ready(function(){
+
     var url = 'http://mikuy.test'; //get url
+
+
      /*=============================================Contact Form ==========================================================*/
      var adviceCheck= $("input[name=advice_type_check]");
      var adviceChecked =$("#advice_checked");
@@ -17,23 +20,21 @@
              $(adviceChecked).attr("value", "");
          }
      });
-     quantity(5, 'rating', 1);
-     function quantity(amount, select, fromNumber){
+/*===============================================CARD FORM ==========================================================*/
+    /* CARD FORM SELECT LOOP */
+    function quantity(amount, select, fromNumber){
         var select = document.getElementById(select);
         for (let i = 0; i < amount; i++){
             select.options[select.options.length] = new Option(i+fromNumber, i+fromNumber);
         }
     }
-
-/*===============================================CARD FORM ==========================================================*/
-    /* CARD FORM SELECT LOOP */
-
-
     //years
     quantity(5,'card_year',2020);
 
     //months
     quantity(12,'card_month',1);
+
+
     /* CARD FORM RADIOBUTTON  */
 
     var cardValue = $("input[name='card_name_check']");
@@ -116,7 +117,6 @@
         });
 
     });*/
-
 
 
 

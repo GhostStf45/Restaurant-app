@@ -42,6 +42,11 @@
                         <div class="form-group col-md-4">
                           <label for="rating">Puntuacion</label>
                           <select class="form-control" name="rating" id="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
                           </select>
                         </div>
                         <div class="form-group col-md-12">
@@ -64,7 +69,7 @@
                 <div class="comment-widgets">
                     <!-- Comment Row -->
                     <div class="d-flex flex-row comment-row m-t-0">
-                        <div class="p-2"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583336/AAA/4.jpg" alt="user" width="50" class="rounded-circle"></div>
+                        <div class="p-2"><img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="user" width="50" class="rounded-circle"></div>
                         <div class="comment-text w-100">
                             <h6 class="font-medium">{{$comment->user->name}}</h6>
                                 <div class="rating">

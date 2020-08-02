@@ -8,7 +8,9 @@
     </h2>
 </section>
 <section class="section-contact bg1-pattern p-t-90 p-b-113">
+
     <div class="container">
+        @include('includes.message')
         <h3 class="tit7 text-center p-b-62 p-t-105">
             Envianos un mensaje
         </h3>
@@ -23,7 +25,12 @@
                     </span>
 
                     <div class="wrap-inputname size12  bo-rad-10 m-t-3 m-b-23">
-                        <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" value="{{ Auth::user()->name ? Auth::user()->name : ''}}" placeholder="Nombre">
+                        <input class="bo-rad-10 sizefull txt10 p-l-20  @error('name') is-invalid @enderror" type="text" name="name" value="{{ Auth::user()->name ? Auth::user()->name : ''}}" placeholder="Nombre">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
 
@@ -34,7 +41,12 @@
                     </span>
 
                     <div class="wrap-inputemail size12  bo-rad-10 m-t-3 m-b-23">
-                        <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="last_name" value="{{ Auth::user()->last_name ? Auth::user()->last_name : ''}}" placeholder="Apellidos">
+                        <input class="bo-rad-10 sizefull txt10 p-l-20  @error('last_name') is-invalid @enderror" type="text" name="last_name" value="{{ Auth::user()->last_name ? Auth::user()->last_name : ''}}" placeholder="Apellidos">
+                        @error('last_name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -43,7 +55,12 @@
                     </span>
 
                     <div class="wrap-inputphone size12  bo-rad-10 m-t-3 m-b-23">
-                        <input class="bo-rad-10 sizefull txt10 p-l-20" type="email" name="email" value="{{ Auth::user()->email ? Auth::user()->email : ''}}" placeholder="Email">
+                        <input class="bo-rad-10 sizefull txt10 p-l-20 @error('email') is-invalid @enderror" type="email" name="email" value="{{ Auth::user()->email ? Auth::user()->email : ''}}" placeholder="Email">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -61,7 +78,12 @@
                         </label>
                     </div>
                     <div class="wrap-inputemail size12  bo-rad-10 m-t-3 m-b-23">
-                        <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" id="advice_checked" name="advice_checked" placeholder="Tipo de mensaje">
+                        <input class="bo-rad-10 sizefull txt10 p-l-20 @error('advice_checked') is-invalid @enderror" type="text" id="advice_checked" name="advice_checked" placeholder="Tipo de mensaje">
+                        @error('advice_checked')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                 </div>
@@ -69,7 +91,12 @@
                     <span class="txt9">
                         Mensaje
                     </span>
-                    <textarea class="bo-rad-10 size35  txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="message" placeholder="Message"></textarea>
+                    <textarea class="bo-rad-10 size35  txt10 p-l-20 p-t-15 m-b-10 m-t-3 @error('message') is-invalid @enderror" name="message" placeholder="Message"></textarea>
+                    @error('message')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 </div>
             </div>
 

@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/perfil', 'UserController@config')->name('profile');
 Route::put('/perfil/update', 'UserController@update')->name('user.update');
 Route::put('/perfil/card/save', 'UserController@createCard')->name('user.card.save');
+Route::put('/perfil/suspended', 'UserController@suspendAccount')->name('user.suspend');
+Route::put('/perfil/activated', 'UserController@activateAccount')->name('user.activate');
 
 /* =================Drinks section==================== */
 Route::get('/drink', 'DrinkController@index')->name('drink.index');

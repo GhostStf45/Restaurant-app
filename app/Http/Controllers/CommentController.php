@@ -35,7 +35,7 @@ class CommentController extends Controller
          $comment->user_id = $user->id;
          $comment->product_id = $product_id;
          $comment->content = $content;
-         $comment->rating = $rating;
+         $comment->rating = (int) $rating;
 
          //Guarda en la id
          $comment->save();

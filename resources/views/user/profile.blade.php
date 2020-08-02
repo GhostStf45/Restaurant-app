@@ -10,7 +10,12 @@
                   <h5 class="card-title mt-2">{{Auth::user()->name}} {{Auth::user()->last_name}}</h5>
                   <p class="card-text mt-2">
                     <span class="d-block">
-                        Administrator
+                        @if(Auth::user()->role->display_name == 'Administrator')
+                            Administrador
+                        @endif
+                        @if(Auth::user()->role->display_name == 'Normal User')
+                            Cliente
+                        @endif
                     </span>
                     @if(Auth::user()->state == 'activated')
                       <span class="badge badge-success">
@@ -99,6 +104,48 @@
                     </div>
 
                   </form>
+                  @if(Auth::user()->role->display_name == 'Normal User')
+                        @if (Auth::user()->state == 'activated')
+                             <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger mb-3" data-toggle="modal" data-target="#exampleModalCenter">
+                                Suspender cuenta
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Suspension de cuenta</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    ¿Estas seguro de suspender tu cuenta?. No podrás realizar pedidos
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="{{route('user.suspend')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="_method" value="PUT">
+                                            <div class="form-group">
+                                                <button type="submit"class="btn btn-danger">Aceptar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        @endif
+                        @if (Auth::user()->state == 'suspended')
+                            <form action="{{route('user.activate')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="_method" value="PUT">
+                                <div class="form-group">
+                                    <button type="submit"class="btn btn-success">Activar cuenta</button>
+                                </div>
+                            </form>
+                        @endif
+                  @endif
                   <p class="bold">¿Queres realizar un pedido?</p>
                   <!-- Button trigger modal -->
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
@@ -187,8 +234,13 @@
                                         </div>
 
                                         <div class="form-group col-lg-4 col-md-4">
-                                            <label for="">CVV/CVC</label>
-                                            <input type="text" class="form-control" name="card_cvc" id="card_cvc" value="{{ Auth::user()->card_cv ? Auth::user()->card_cv : ''}}" placeholder="123">
+                                            <label for="card_cvc">CVV/CVC</label>
+                                            <input type="text" class="form-control @error('card_cvc') is-invalid @enderror" name="card_cvc" id="card_cvc" value="{{ Auth::user()->card_cv ? Auth::user()->card_cv : ''}}" placeholder="123">
+                                            @error('card_cvc')
+                                              <span class="invalid-feedback" role="alert">
+                                                  <strong>{{ $message }}</strong>
+                                              </span>
+                                            @enderror
                                         </div>
 
                                     </div>

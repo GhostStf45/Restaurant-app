@@ -49,7 +49,7 @@
                             </span>
                         </div>
                         <div class="btn-group mt-4">
-                            <a href="#" class="btn btn-sm btn-success p-2 mr-2"><i class="fas fa-shopping-cart"></i> Añadir al carrito</a>
+                            <a href="{{route('cart.add.drink', $drink->id)}}" class="btn btn-sm btn-success p-2 mr-2"><i class="fas fa-shopping-cart"></i> Añadir al carrito</a>
                         </div>
 
                     </div>

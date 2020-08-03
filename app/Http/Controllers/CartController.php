@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Drink;
 use App\Product;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -11,6 +12,7 @@ class CartController extends Controller
     //
     public function add(Product $product)
     {
+        
         // add the product to cart
         \Cart::session(auth()->id())->add(array(
             'id' => $product->id,
@@ -19,6 +21,18 @@ class CartController extends Controller
             'quantity' => 1,
             'attributes' => array(),
             'associatedModel' => $product
+        ));
+        return redirect()->route('cart.index');
+    }
+    public function addDrink(Drink $drink)
+    {
+        \Cart::session(auth()->id())->add(array(
+            'id' => $drink->id,
+            'name' => $drink->name,
+            'price' => $drink->price,
+            'quantity' => 1,
+            'attributes' => array(),
+            'associatedModel' => $drink
         ));
         return redirect()->route('cart.index');
     }

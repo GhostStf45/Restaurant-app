@@ -48,6 +48,7 @@ Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.de
 
 /* =====================CART SECTION =============================== */
 Route::get('/add-to-cart/{product}', 'CartController@add')->name('cart.add')->middleware('auth');
+Route::get('/add-to-cart/drink/{drink}', 'CartController@addDrink')->name('cart.add.drink')->middleware('auth');
 Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('auth');
 Route::get('/cart/destroy/{itemId}', 'CartController@destroy')->name('cart.destroy')->middleware('auth');
 Route::get('/cart/clear', 'CartController@clear')->name('cart.clear')->middleware('auth');

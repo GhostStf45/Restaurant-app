@@ -651,6 +651,12 @@ p {
 .comment-widgets .comment-row:hover {
     background: rgba(0, 0, 0, 0.05)
 }
+/*[ CART SECTION ]
+///////////////////////////////////////////////////////////
+*/
+.cart_quantity{
+    height: 25px !important;
+}
 /*[ MEDIA QUERIES ]
 ///////////////////////////////////////////////////////////
 */

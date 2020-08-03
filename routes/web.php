@@ -46,7 +46,12 @@ Route::post('/contact/save', 'AdviceController@saveAdvice')->name('advice.save')
 Route::post('/comment/save', 'CommentController@save')->name('comment.save');
 Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.delete');
 
-
+/* =====================CART SECTION =============================== */
+Route::get('/add-to-cart/{product}', 'CartController@add')->name('cart.add')->middleware('auth');
+Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('auth');
+Route::get('/cart/destroy/{itemId}', 'CartController@destroy')->name('cart.destroy')->middleware('auth');
+Route::get('/cart/clear', 'CartController@clear')->name('cart.clear')->middleware('auth');
+Route::get('/cart/update/{itemId}', 'CartController@update')->name('cart.update')->middleware('auth');
 
 
 

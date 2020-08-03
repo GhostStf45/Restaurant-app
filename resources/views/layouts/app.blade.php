@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Mikuy') }}</title>
+    <title>Mikuy Delivery</title>
     <!-- Scripts -->
 
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -59,9 +59,11 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                        <a class="nav-link" href="{{route('cart.index')}}">
                                 <i class="fas fa-cart-arrow-down fa-2x"></i>
-                                <span class="badge badge-success">0</span>
+                                <span class="badge badge-success">
+                                    {{Cart::session(auth()->id())->getContent()->count()}}
+                                </span>
                             </a>
                         </li>
                         @guest

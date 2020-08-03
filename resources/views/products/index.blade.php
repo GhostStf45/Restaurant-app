@@ -9,8 +9,9 @@
 </section>
 
 <div class="row ">
+    {{--FILTER SECTION--}}
         <div class="col-lg-12 general-content product-container p-4">
-            <!-- Select form -->
+
             <div class="row mx-1 select-section d-flex align-items-center justify-content-center">
                 <div class="col-lg-4">
                     <form action="{{route('products.listaCategoria')}}" method="GET">
@@ -31,7 +32,7 @@
                         <div class="form-group">
                             <label for="select-type-of-product">Seleccionar tipo de plato: </label>
                             <select class="form-control" name="tipo_producto">
-                                <option value="">Seleccionar</option>
+                                <option value="" selected>Seleccionar</option>
                                     @foreach ($allCategories as $category)
                                         <option value="{{$category->name}}" {{$category->id ? 'selected' : ''}}>
                                             {{$category->name}}
@@ -51,7 +52,9 @@
             <div id="pagination" class="mt-3 d-flex align-items-center justify-content-md-center">{{$allProducts->appends(request()->except('page'))->links()}}</div>
             <!--End pagination-->
         </div>
+    {{--END FILTER SECTION--}}
 </div>
+{{--=======================================================PRODUCT SECTION======================================================--}}
 <section class="section-lunch bgwhite">
     <div class="container">
         <div class="row p-t-108 p-b-70">
@@ -92,7 +95,7 @@
 
                     </div>
                     <div class="btn-group">
-                        <a href="#" class="btn btn-sm btn-success p-2 mr-2"><i class="fas fa-shopping-cart"></i> Añadir al carrito</a>
+                    <a href="{{route('cart.add', $product->id)}}" class="btn btn-sm btn-success p-2 mr-2"><i class="fas fa-shopping-cart"></i> Añadir al carrito</a>
                         <a href="{{route('drink.index')}}" class="btn btn-sm btn-principal p-2"><i class="fas fa-wine-bottle"></i> Añadir una bebida</a>
                     </div>
 
@@ -102,5 +105,6 @@
         </div>
     </div>
 </section>
+{{--======================================================= END PRODUCT SECTION======================================================--}}
 
 @endsection

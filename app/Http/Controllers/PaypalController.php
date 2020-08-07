@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderPaid;
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
 class PaypalController extends Controller
@@ -66,6 +68,9 @@ class PaypalController extends Controller
                 $order->save();
 
                 //send mail
+                Mail::to($order->user->email)->send(new OrderPaid($order));
+
+
                 return redirect('/')->withMessage('Payment successfull');
             }
 

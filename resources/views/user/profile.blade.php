@@ -5,7 +5,7 @@
     <div class="row profile-group mt-5 bg1-pattern p-5">
         <div class="col-lg-5 col-md-6 col-sm-12">
             <div class="card card-profile">
-                <div class="card-img-top bg-white mt-4 "><img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png" alt="user-image" class="d-block mx-auto" width="220px" height="220px"></div>
+            <div class="card-img-top bg-white mt-4 "><img src="{{asset('img/icons/default-user-icon-4.jpg')}}" alt="user-image" class="d-block mx-auto" width="220px" height="220px"></div>
                 <div class="card-body text-center">
                   <h5 class="card-title mt-2">{{Auth::user()->name}} {{Auth::user()->last_name}}</h5>
                   <p class="card-text mt-2">

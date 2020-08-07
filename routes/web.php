@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,7 +55,16 @@ Route::get('/cart/destroy/{itemId}', 'CartController@destroy')->name('cart.destr
 Route::get('/cart/clear', 'CartController@clear')->name('cart.clear')->middleware('auth');
 Route::get('/cart/update/{itemId}', 'CartController@update')->name('cart.update')->middleware('auth');
 
+/*====================== CHECKOUT METHOD ========== */
 
+Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout')->middleware('auth');
+
+Route::resource('orders', 'OrderController')->middleware('auth');
+
+/* =====================PAYPAL METHOD ==================== */
+Route::get('paypal/checkout/{order}', 'PaypalController@getExpressCheckout')->name('paypal.checkout');
+Route::get('paypal/checkout-success/{order}', 'PaypalController@getExpressCheckoutSuccess')->name('paypal.success');
+Route::get('paypal/checkout-cancel', 'PaypalController@cancelPage')->name('paypal.cancel');
 
 
 

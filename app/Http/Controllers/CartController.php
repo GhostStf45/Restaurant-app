@@ -12,7 +12,7 @@ class CartController extends Controller
     //
     public function add(Product $product)
     {
-        
+
         // add the product to cart
         \Cart::session(auth()->id())->add(array(
             'id' => $product->id,
@@ -66,5 +66,9 @@ class CartController extends Controller
         Alert::success('Tu carrito ha sido vaciado correctamente.');
         return back();
 
+    }
+    public function checkout()
+    {
+        return view('cart.checkout');
     }
 }

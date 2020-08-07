@@ -111,9 +111,7 @@ class UserController extends Controller
         }
 
         $user->update();
-
-        Alert::success('Tarjeta guardada correctamente.');
-
+        Alert::success('¡Tarjeta validada correctamente!');
         return redirect()->route('profile');
 
         //return response()->json($user,200);

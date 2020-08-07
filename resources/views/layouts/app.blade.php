@@ -62,7 +62,11 @@
                         <a class="nav-link" href="{{route('cart.index')}}">
                                 <i class="fas fa-cart-arrow-down fa-2x"></i>
                                 <span class="badge badge-success">
-                                    {{Cart::session(auth()->id())->getContent()->count()}}
+                                    @auth
+                                        {{Cart::session(auth()->id())->getContent()->count()}}
+                                    @else
+                                        0
+                                    @endauth
                                 </span>
                             </a>
                         </li>
@@ -115,6 +119,18 @@
             </div>
 
         </nav>
+        {{--Display success message--}}
+        @if (session()->has('message'))
+            <div class="alert alert-success" role="alert">
+                {{session('message')}}
+            </div>
+        @endif
+        {{--Display error message--}}
+        @if (session()->has('error'))
+            <div class="alert alert-danger" role="alert">
+                {{session('error')}}
+            </div>
+        @endif
         <main>
 
             @yield('content')

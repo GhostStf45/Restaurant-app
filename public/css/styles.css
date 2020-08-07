@@ -179,6 +179,9 @@ p {
     background-color: #FEC630;
     border-color: #FEC630;
 }
+.radius-small{
+    border-radius: 0.25rem !important;
+}
 
 /*[ Nav Styles ]
 ///////////////////////////////////////////////////////////

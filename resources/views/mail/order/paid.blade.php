@@ -30,7 +30,7 @@ Gracias por tu compra. Dentro de 30 a 45 min llegará su pedido.
 <p class="font-weight-bold">Total + IGV:S/. {{$order->grand_total*0.18+$order->grand_total}}</p>
 <p class="font-weight-bold">Envio:S/. {{$order->grand_total*0.05}}</p>
 
-@component('mail::button', ['url' => '/contact'])
+@component('mail::button', ['url' => ''])
 Calificar el servicio
 @endcomponent
 

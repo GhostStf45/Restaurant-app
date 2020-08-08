@@ -61,7 +61,7 @@ class PaypalController extends Controller
             // Payform transaction on paypal
             $payment_status = $provider->doExpressCheckoutPayment($checkoutData,$token, $payerId);
             $status = $payment_status['PAYMENTINFO_0_PAYMENTSTATUS'];
-            if(in_array($status, ['Completed']))
+            if(in_array($status, ['Completed','Processed']))
             {
                 $order = Order::find($orderId);
                 $order->is_paid = 1;
@@ -71,7 +71,7 @@ class PaypalController extends Controller
                 Mail::to($order->user->email)->send(new OrderPaid($order));
 
 
-                return redirect('/')->withMessage('Payment successfull');
+                return redirect('/satisfaction')->withMessage('Llena este formulario para poder saber su grado de satisfaccion.');
             }
 
         }

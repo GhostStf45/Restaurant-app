@@ -67,16 +67,14 @@
                     <div class="txt9">
                         Tipo
                     </div>
-                    <div class="btn-group colors" data-toggle="buttons">
-                        <label class="btn btn-dark active mr-1">
-                          Queja
-                          <input type="radio" class="advice_type" name="advice_type_check" value="complaint_option" autocomplete="off">
-                        </label>
-                        <label class="btn btn-dark">
-                            Recomendacion
-                            <input type="radio" class="advice_type" name="advice_type_check" value="should_option" autocomplete="off">
-                        </label>
-                    </div>
+                        <div class="custom-control custom-radio col-md-12">
+                            <input type="radio" id="customRadio1" name="advice_type_check" class="custom-control-input" value="complaint_option">
+                            <label class="custom-control-label" for="customRadio1">Queja</label>
+                        </div>
+                        <div class="custom-control custom-radio col-md-12">
+                            <input type="radio" id="customRadio2" name="advice_type_check" class="custom-control-input" value="should_option">
+                            <label class="custom-control-label" for="customRadio2">Recomendacion</label>
+                        </div>
                     <div class="wrap-inputemail size12  bo-rad-10 m-t-3 m-b-23">
                         <input class="bo-rad-10 sizefull txt10 p-l-20 @error('advice_checked') is-invalid @enderror" type="text" id="advice_checked" name="advice_checked" placeholder="Tipo de mensaje">
                         @error('advice_checked')

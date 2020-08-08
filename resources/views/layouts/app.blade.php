@@ -121,12 +121,10 @@
         </nav>
         {{--Display success message--}}
         @if (session()->has('message'))
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success text-center" role="alert">
                 {{session('message')}}
             </div>
-        @endif
-        {{--Display error message--}}
-        @if (session()->has('error'))
+         @elseif (session()->has('message'))
             <div class="alert alert-danger" role="alert">
                 {{session('error')}}
             </div>

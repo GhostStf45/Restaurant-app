@@ -90,7 +90,7 @@ class OrderController extends Controller
         }
 
         //empty cart
-        //\Cart::session(auth()->id())->clear();
+        \Cart::session(auth()->id())->clear();
         //send email to customer
 
         //take user to thank you

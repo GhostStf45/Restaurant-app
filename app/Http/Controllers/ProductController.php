@@ -17,7 +17,7 @@ class ProductController extends Controller
         $category = new Category();
         $product = new Product();
         $categories = Category::all();
-        $products = Product::orderBy('created_at', 'desc')->paginate(8);
+        $products = Product::orderBy('created_at', 'desc')->paginate(6);
         $select = $request->input('tipo_producto');
         $orderByDateAndAlphabeth= $request->input('ordenar_alfabetica_dia');
         //vincular la bd
@@ -34,15 +34,15 @@ class ProductController extends Controller
         }
        if($orderByDateAndAlphabeth == 'Platos añadidos recientemente.')
         {
-            $products = Product::orderBy('created_at', 'desc')->paginate(8);
+            $products = Product::orderBy('created_at', 'desc')->paginate(6);
         }
        if($orderByDateAndAlphabeth == 'A-Z')
         {
-            $products = Product::orderBy('name', 'ASC')->paginate(8);
+            $products = Product::orderBy('name', 'ASC')->paginate(6);
         }
         if($orderByDateAndAlphabeth == 'Ordenar por precio mayor-menor')
         {
-            $products = Product::orderBy('price', 'ASC')->paginate(8);
+            $products = Product::orderBy('price', 'ASC')->paginate(6);
         }
 
         return view('products.index', ['allProducts'=> $products, 'allCategories'=>$categories, 'select' => $select, 'avg' => $avg]);

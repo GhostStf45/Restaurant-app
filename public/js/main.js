@@ -1,9 +1,8 @@
 'use strict'
 
-  $(document).ready(function(){
+$(document).ready(function(){
 
     var url = 'http://mikuy.test'; //get url
-
 
      /*=============================================Contact Form ==========================================================*/
      var adviceCheck= $("input[name=advice_type_check]");
@@ -20,7 +19,7 @@
              $(adviceChecked).attr("value", "");
          }
      });
-/*===============================================CARD FORM ==========================================================*/
+    /*===============================================CARD FORM ==========================================================*/
     /* CARD FORM SELECT LOOP */
     function quantity(amount, select, fromNumber){
         var select = document.getElementById(select);
@@ -117,8 +116,4 @@
         });
 
     });*/
-
-
-
 });
-

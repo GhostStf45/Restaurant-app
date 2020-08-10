@@ -51,7 +51,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('advice.create')}}">
-                                CONTACTANOS
+                                RECLAMOS
                             </a>
                         </li>
                     </ul>
@@ -81,19 +81,21 @@
                             </div>
                         </li>
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fas fa-arrow-down fa-2x"></i>
-                                    Acciones
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-left dropdown-content-main animate slideIn" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item dropdown-content" href="{{route('product.create')}}"><i class="fas fa-plus-square"></i> Crear Producto</a>
-                                    <a class="dropdown-item dropdown-content" href="{{route('drink.create')}}">
-                                        <i class="fas fa-wine-bottle"></i>
-                                        Crear Bebida
+                            @if(Auth::user()->role->display_name == 'Administrator')
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <i class="fas fa-arrow-down fa-2x"></i>
+                                        Acciones
                                     </a>
-                                </div>
-                            </li>
+                                    <div class="dropdown-menu dropdown-menu-left dropdown-content-main animate slideIn" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item dropdown-content" href="{{route('product.create')}}"><i class="fas fa-plus-square"></i> Crear Producto</a>
+                                        <a class="dropdown-item dropdown-content" href="{{route('drink.create')}}">
+                                            <i class="fas fa-wine-bottle"></i>
+                                            Crear Bebida
+                                        </a>
+                                    </div>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fas fa-user fa-2x"></i> {{ Auth::user()->name }} <span class="caret"></span>
@@ -102,6 +104,11 @@
                                     <a class="dropdown-item dropdown-content" href="{{route('profile')}}">
                                         Perfil
                                     </a>
+                                    @if(Auth::user()->role->display_name == 'Administrator')
+                                    <a class="dropdown-item dropdown-content" href="{{route('admin_charts.read')}}">
+                                        Panel de registros frecuentes
+                                    </a>
+                                    @endif
                                     <a class="dropdown-item dropdown-content" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -139,7 +146,13 @@
     <!--Scripts-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" integrity="sha512-VZ6m0F78+yo3sbu48gElK4irv2dzPoep8oo9LEjxviigcnnnNvnTOJRSrIhuFk68FMLOpiNz+T77nNY89rnWDg==" crossorigin="anonymous"></script>
+    <script src="{{asset('js/aqp_distritos.js')}}"></script>
+    <script src="{{asset('js/charts_admin.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
+
+
     @include('sweetalert::alert')
 
 </body>

@@ -7,59 +7,77 @@
         PLATOS
     </h2>
 </section>
-
 <div class="row ">
     {{--FILTER SECTION--}}
-        <div class="col-lg-12 general-content product-container p-4">
+    <div class="col-lg-12 general-content product-container p-4">
+        <div id="filter-panel" class="collapse filter-panel">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-lg-12 general-content product-container p-4 shadow">
+                        <div class="row mx-1 select-section d-flex align-items-center justify-content-center">
+                            <div class="col-lg-6">
+                                <form action="{{route('products.listaCategoria')}}" method="GET">
+                                    <div class="form-group">
+                                        <label for="">Ordenar por: </label>
+                                        <select class="form-control" name="ordenar_alfabetica_dia" id="">
+                                        <option>A-Z</option>
+                                        <option>Platos añadidos recientemente.</option>
+                                        <option>Ordenar por precio mayor-menor</option>
 
-            <div class="row mx-1 select-section d-flex align-items-center justify-content-center">
-                <div class="col-lg-4">
-                    <form action="{{route('products.listaCategoria')}}" method="GET">
-                        <div class="form-group">
-                            <label for="">Ordenar por: </label>
-                            <select class="form-control" name="ordenar_alfabetica_dia" id="">
-                              <option>A-Z</option>
-                              <option>Platos añadidos recientemente.</option>
-                              <option>Ordenar por precio mayor-menor</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-principal">Buscar...</button>
+                                </form>
+                            </div>
+                            <div class="col-lg-6">
+                                <form action="{{route('products.listaCategoria')}}" method="GET">
+                                    <div class="form-group">
+                                        <label for="select-type-of-product">Seleccionar tipo de plato: </label>
+                                        <select class="form-control" name="tipo_producto">
+                                            <option value="" selected>Seleccionar</option>
+                                                @foreach ($allCategories as $category)
+                                                    <option value="{{$category->name}}" {{$category->id ? 'selected' : ''}}>
+                                                        {{$category->name}}
+                                                    </option>
+                                                @endforeach
 
-                            </select>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-principal">Buscar...</button>
+                                </form>
+                            </div>
+                            {{-- <div class="col-lg-4">
+                            <a href="{{route('drink.index')}}" class="btn btn-block btn-bebidas btn-principal"><i class="fas fa-wine-bottle"></i> Ir a la seccion de bebidas</a>
+                            </div> --}}
                         </div>
-                        <button type="submit" class="btn btn-principal">Buscar...</button>
-                    </form>
-                </div>
-                <div class="col-lg-4">
-                    <form action="{{route('products.listaCategoria')}}" method="GET">
-                        <div class="form-group">
-                            <label for="select-type-of-product">Seleccionar tipo de plato: </label>
-                            <select class="form-control" name="tipo_producto">
-                                <option value="" selected>Seleccionar</option>
-                                    @foreach ($allCategories as $category)
-                                        <option value="{{$category->name}}" {{$category->id ? 'selected' : ''}}>
-                                            {{$category->name}}
-                                        </option>
-                                    @endforeach
-
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-principal">Buscar...</button>
-                    </form>
-                </div>
-                <div class="col-lg-4">
-                <a href="{{route('drink.index')}}" class="btn btn-block btn-bebidas btn-principal"><i class="fas fa-wine-bottle"></i> Ir a la seccion de bebidas</a>
+                    </div>
                 </div>
             </div>
-            <!--Pagination-->
-            <div id="pagination" class="mt-3 d-flex align-items-center justify-content-md-center">{{$allProducts->appends(request()->except('page'))->links()}}</div>
-            <!--End pagination-->
         </div>
+
+    </div>
+
     {{--END FILTER SECTION--}}
 </div>
 {{--=======================================================PRODUCT SECTION======================================================--}}
 <section class="section-lunch bgwhite">
+    <div class="row bg-dark">
+        <div class="col-md-12 mt-4">
+            <button type="button" class="btn btn-principal d-block mx-auto" data-toggle="collapse" data-target="#filter-panel">
+                <i class="fas fa-cog"></i> Filtro avanzado
+            </button>
+        </div>
+        <!--Pagination-->
+        <div id="pagination" class="mt-3 d-flex align-items-center justify-content-md-center col-md-12">
+
+            {{$allProducts->appends(request()->except('page'))->links()}}
+        </div>
+        <!--End pagination-->
+     </div>
     <div class="container">
-        <div class="row p-t-108 p-b-70">
+        <div class="row p-t-60 p-b-70">
             @foreach ($allProducts as $product)
-            <div class="col-md-8 col-lg-6 m-l-r-auto">
+            <div class="col-md-4 col-lg-4 m-l-r-auto">
                 <!-- Block3 -->
                 <div class="blo3 flex-w flex-col-l-sm m-b-30">
                     <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">

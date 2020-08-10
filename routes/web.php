@@ -72,6 +72,11 @@ Route::get('/satisfaction/save', 'SatisfactionController@save')->name('satisfact
 
 
 
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::get('/admin/charts', 'AdminChartsController@index')->name('admin_charts.read');
+    Route::get('/admin/charts/advice/all', 'AdminChartsController@MoreFrencuently')->name('admin_charts.all');
+    Route::get('/admin/charts/dishes', 'AdminChartsController@MoreFrencuentlyDish')->name('admin_charts.dishes');
 });

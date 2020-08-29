@@ -14,6 +14,10 @@ class Product extends Model
      public function comments (){
         return $this->hasMany('App\Comment');
     }
+    public function product()
+    {
+        return $this->hasMany('App\Model\Promotion');
+    }
    /* public function drinks(){
         return $this->belongsTo('App\Drink', 'drink_id');
     }*/

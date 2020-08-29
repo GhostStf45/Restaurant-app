@@ -1,27 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container bg-white mt-4 radius-small p-5">
+<div class=" bg-white radius-small p-5 bg1-pattern">
         <div class="card row shadow">
             <div class="card-header header-login">
                 <h2>Monitoreo de actividades </h2>
             </div>
             <div class="col-md-12 my-2">
-                <h3 class="my-4">Eliga la opcion </h3>
-            <form action="" class="d-flex align-items-center justify-content-center my-3 flex-wrap">
-                        <div class="custom-control custom-radio col-md-3">
-                            <input type="radio" id="customRadio2" name="filter_stats" class="custom-control-input" value="admin_advice">
-                            <label class="custom-control-label" for="customRadio2">Quejas mas recurrentes</label>
-                        </div>
-                        <div class="custom-control custom-radio col-md-3">
-                            <input type="radio" id="customRadio3" name="filter_stats" class="custom-control-input" value="admin_dishes">
-                            <label class="custom-control-label" for="customRadio3">Platos mas solicitados</label>
-                        </div>
-                        <div class="custom-control custom-radio col-md-3">
-                            <input type="radio" id="customRadio4" name="filter_stats" class="custom-control-input" value="admin_years_old">
-                            <label class="custom-control-label" for="customRadio4">Edad recurrente</label>
-                        </div>
-                    </form>
+            <form action="" class="my-4">
+                <div class="form-group">
+                    <label for="" class="font-weight-bold">Mas solicitados</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="filter_stats" class="custom-control-input" value="admin_advice">
+                        <label class="custom-control-label" for="customRadio2">Quejas mas recurrentes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio3" name="filter_stats" class="custom-control-input" value="admin_dishes">
+                        <label class="custom-control-label" for="customRadio3">Platos mas solicitados</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio4" name="filter_stats" class="custom-control-input" value="admin_districts">
+                        <label class="custom-control-label" for="customRadio4">Distritos que mas consumen</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio7" name="filter_stats" class="custom-control-input" value="admin_age_frec">
+                        <label class="custom-control-label" for="customRadio7">Edad que mas consumen</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="font-weight-bold">Filtrar ultimos 7 dias</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio5" name="filter_stats" class="custom-control-input" value="admin_advice_last7Days">
+                        <label class="custom-control-label" for="customRadio5">Recomendaciones y Quejas</label>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="" class="font-weight-bold">Dias (Lunes-Viernes) con más...</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio6" name="filter_stats" class="custom-control-input" value="admin_products_last7Days">
+                        <label class="custom-control-label" for="customRadio6">Pedidos</label>
+                    </div>
+                </div>
+            </form>
             </div>
             <div class="card-body col-md-12">
                 <canvas id="myChart" class="w-100" height="400"></canvas>

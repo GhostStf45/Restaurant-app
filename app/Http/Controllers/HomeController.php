@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\Promotion;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,9 +20,9 @@ class HomeController extends Controller
     }
     public function index()
     {
-        return view('home');
+        $allPromotions = Promotion::all();
+        return view('home')->with('allPromotions', $allPromotions);
     }
-
     /**
      * Show the application dashboard.
      *

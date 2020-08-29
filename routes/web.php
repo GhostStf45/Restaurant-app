@@ -79,4 +79,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/admin/charts', 'AdminChartsController@index')->name('admin_charts.read');
     Route::get('/admin/charts/advice/all', 'AdminChartsController@MoreFrencuently')->name('admin_charts.all');
     Route::get('/admin/charts/dishes', 'AdminChartsController@MoreFrencuentlyDish')->name('admin_charts.dishes');
+    Route::get('/admin/charts/districts', 'AdminChartsController@MoreFrencuentlyDistrict')->name('admin_charts.districts');
+    Route::get('/admin/charts/days', 'AdminChartsController@MoreFrencuentlyDays')->name('admin_charts.days');
+    Route::get('/admin/charts/lastDaysAdvice', 'AdminChartsController@last7DaysCreatedAtAdviceData')->name('admin_charts.last7Days');
 });

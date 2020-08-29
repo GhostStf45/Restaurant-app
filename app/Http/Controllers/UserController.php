@@ -124,7 +124,7 @@ class UserController extends Controller
         $user->update();
         Alert::warning('Cuenta suspendida');
 
-        return redirect()->route('profile');
+        return redirect()->route('home');
     }
     public function activateAccount()
     {

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\OrderPaid;
 use App\Order;
+use App\Mail\OrderPaid;
 use Illuminate\Http\Request;
+use Nexmo\Laravel\Facade\Nexmo;
 use Illuminate\Support\Facades\Mail;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
@@ -70,8 +71,15 @@ class PaypalController extends Controller
                 //send mail
                 Mail::to($order->user->email)->send(new OrderPaid($order));
 
+                Nexmo::message()->send([
+                    'to'   => '51'.'969384222',
+                    'from' => '51969384222',
+                    'text' => 'Estoy en camino, le aviso cuando este cerca, muchas gracias por preferir Mikuy.'
+                ]);
 
-                return redirect('/satisfaction')->withMessage('Llena este formulario para poder saber su grado de satisfaccion.');
+
+
+                return redirect('/satisfaction')->withMessage('Su recibo se envio a su correo.');
             }
 
         }

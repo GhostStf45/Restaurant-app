@@ -174,9 +174,12 @@
                                                 @if (Auth::user()->card_type == 'Credito')
                                                         <option>{{Auth::user()->card_type}}</option>
                                                         <option>Debito</option>
-                                                @else
+                                                @elseif(Auth::user()->card_type == 'Debito')
                                                         <option>{{Auth::user()->card_type}}</option>
                                                         <option>Credito</option>
+                                                @else
+                                                    <option>Debito</option>
+                                                    <option>Credito</option>
                                                 @endif
                                               </select>
                                             @error('card_type')

@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'phone_primary' => ['required', 'integer', 'unique:users'],
             'address_primary' => ['required', 'string', 'min:9'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'birthday' => ['required', 'date']
         ]);
     }
 
@@ -75,6 +76,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'phone_primary' => $data['phone_primary'],
             'address_primary' => $data['address_primary'],
+            'birthday' => $data['birthday']
         ]);
     }
 }

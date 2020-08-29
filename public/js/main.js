@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
 
+
     var url = 'http://mikuy.test'; //get url
 
      /*=============================================Contact Form ==========================================================*/
@@ -79,41 +80,8 @@ $(document).ready(function(){
         console.log(expiredDate);
 
     });
-    /*AJAX request to save data in db*/
-   /* $('#creditCardForm').submit(function(e){
-        e.preventDefault();
+    $('#myCarousel').carousel({
+        interval: 2000,
+     })
 
-        var inputExpiredDate = $("input[name=expiredDate]");
-        var selectCardType = $("select[name=card_type] option").filter(':selected');
-        var cardNumber = $("input[name=card_number]");
-        var cardCVC = $("input[name=card_cvc]");
-        cardValueChecked = $("input[name=card_name_value]");
-        console.log(selectCardType.val(),cardValueChecked.val(), inputExpiredDate.val(), cardNumber.val(), cardCVC.val());
-
-        $.ajax({
-            type: "put",
-            url: url+'/perfil/card/save',
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data:{
-                'card_type': $(selectCardType).val(),
-                'card_name': $(cardValueChecked).val(),
-                'card_number': $(cardNumber).val(),
-                'card_cv' : $(cardCVC).val(),
-                'card_date_expired':  $(inputExpiredDate).val(),
-
-            }, success: function(data){
-                console.log(data, 'user'); //success
-            },
-            error:function(data){
-                //nos dara el error si es que hay alguno
-                var errors = data.responseJSON;
-                console.log(errors, data);
-            }
-        });
-
-    });*/
 });

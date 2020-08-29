@@ -35,8 +35,13 @@
             <div class="col-md-12">
                 <h5 class="font-weight-bold">
                     Subtotal: S/. {{\Cart::session(auth()->id())->getTotal()}}
+
+                </h5>
+                <h5 class="font-weight-bold">
+                    Total (IGV): S/. {{\Cart::session(auth()->id())->getTotal()+\Cart::session(auth()->id())->getTotal()*0.18}}
                 </h5>
             <a href="{{route('cart.checkout')}}" class="btn btn-success mt-4 mr-2" role="button">Procedimiento para pagar</a>
+            <a href="{{route('product.index')}}" class="btn btn-primary mt-4 mx-4" role="button">Seguir comprando</a>
                 <a href="{{route('cart.clear')}}" class="btn btn-danger mt-4" role="button">Vaciar carrito</a>
             </div>
 

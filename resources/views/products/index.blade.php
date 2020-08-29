@@ -98,6 +98,11 @@
                         <span class="txt22">
                             S/.{{ $product->price }}
                         </span>
+                        @if( $product->created_at > \Carbon\Carbon::now()->subDay() )
+                            <span class="badge badge-warning txt24 text-dark font-weight-bold">
+                                Nuevo
+                            </span>
+                        @endif
                         <div class="details">
                             <div class="rating">
                                 <div class="stars">
@@ -109,7 +114,9 @@
                                 </div>
                                 <span class="review-no">{{count($product->comments)}} Reseñas </span>
                             </div>
+
                         </div>
+
 
                     </div>
                     <div class="btn-group">

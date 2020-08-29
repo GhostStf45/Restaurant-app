@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use RealRashid\SweetAlert\Facades\Alert;
 use App\Product;
 use App\Category;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Nexmo\Laravel\Facade\Nexmo;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -115,6 +117,12 @@ class ProductController extends Controller
         }
 
         $product->save();
+
+        Nexmo::message()->send([
+            'to'   => '51'.'969384222',
+            'from' => '51969384222',
+            'text' => 'Hay un nuevo plato que usted debe probar '.$name.' Atentamente: Mikuy'
+        ]);
 
         Alert::success('Producto creado correctamente');
 

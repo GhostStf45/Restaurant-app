@@ -148,7 +148,6 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" integrity="sha512-VZ6m0F78+yo3sbu48gElK4irv2dzPoep8oo9LEjxviigcnnnNvnTOJRSrIhuFk68FMLOpiNz+T77nNY89rnWDg==" crossorigin="anonymous"></script>
-    <script src="{{asset('js/aqp_distritos.js')}}"></script>
     <script src="{{asset('js/charts_admin.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
 

@@ -66,6 +66,14 @@
                                 </span>
                             @enderror
                         </div>
+                        <div class="form-group col-md-12">
+                            <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" placeholder="birthday" required autocomplete="birthday">
+                            @error('birthday')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
 
                                 <button type="submit" class="btn btn-block btn-principal">
                                     {{ __('Registrarse') }}

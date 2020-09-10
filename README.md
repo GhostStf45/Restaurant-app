@@ -33,7 +33,9 @@ https://git-scm.com/download/win
 {Disk}:/{Laragon_instalation_directory}/www/{your_name_project_folder}
 
 * Put Command:
+
 $ git init
+
 $ git clone https://github.com/GhostStf45/Restaurant-app.git
 
 ## 7. Install Composer modules
@@ -41,12 +43,14 @@ $ git clone https://github.com/GhostStf45/Restaurant-app.git
 * First, you must be in your directory {Disk}:/{Laragon_instalation_directory}/www/mikuy
 
 * Open your CMD and write:
+
 $ composer install
 
 ## 8. Install NPM modules
 * First, you must be in your directory {Disk}:/{Laragon_instalation_directory}/www/mikuy
 
 * Open your CMD and write:
+
 $ npm install
 
 

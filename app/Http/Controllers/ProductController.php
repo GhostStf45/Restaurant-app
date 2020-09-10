@@ -19,7 +19,9 @@ class ProductController extends Controller
         $category = new Category();
         $product = new Product();
         $categories = Category::all();
+
         $products = Product::orderBy('created_at', 'desc')->paginate(6);
+
         $select = $request->input('tipo_producto');
         $orderByDateAndAlphabeth= $request->input('ordenar_alfabetica_dia');
         //vincular la bd
@@ -66,7 +68,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'category' => 'required',
-            'price' => 'required|integer',
+            'price' => 'required|numeric|between:0,99.99',
             'quantity' => 'required|integer',
             'description' => 'required',
             'image' => 'required|image'
@@ -81,7 +83,7 @@ class ProductController extends Controller
         //conseguir datos del formulario
         $name = $request->input('name');
         $category_name = $request->input('category');
-         $price =(int) $request->input('price');
+         $price =(float) $request->input('price');
         $quantity = (int) $request->input('quantity');
         $description = $request->input('description');
 
@@ -98,7 +100,7 @@ class ProductController extends Controller
         //vincular a la base de datos
         $product->name = $name;
         $product->category_id = (int) $category_name;
-        $product->price = (int) $price;
+        $product->price = (float) $price;
         $product->quantity = (int) $quantity;
         $product->description = $description;
 
@@ -118,11 +120,11 @@ class ProductController extends Controller
 
         $product->save();
 
-        Nexmo::message()->send([
+        /*Nexmo::message()->send([
             'to'   => '51'.'969384222',
             'from' => '51969384222',
             'text' => 'Hay un nuevo plato que usted debe probar '.$name.' Atentamente: Mikuy'
-        ]);
+        ]);*/
 
         Alert::success('Producto creado correctamente');
 

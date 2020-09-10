@@ -20,7 +20,7 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $allPromotions = Promotion::all();
+        $allPromotions = Promotion::limit(3)->get();
         return view('home')->with('allPromotions', $allPromotions);
     }
     /**

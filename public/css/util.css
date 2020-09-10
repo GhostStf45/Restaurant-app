@@ -3132,6 +3132,10 @@ EFFECT   EFFECT   EFFECT   EFFECT   EFFECT   EFFECT  EFFECT
 	background-image: url(../img/pattern3.png);
   	background-repeat: repeat;
 }
+.bg4-pattern {
+	background-image: url(../img/pattern4.png);
+  	background-repeat: repeat;
+}
 
 
 /*[ Hover ]

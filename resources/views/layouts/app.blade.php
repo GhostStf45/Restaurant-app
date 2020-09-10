@@ -108,6 +108,9 @@
                                     <a class="dropdown-item dropdown-content" href="{{route('admin_charts.read')}}">
                                         Panel de registros frecuentes
                                     </a>
+                                    <a class="dropdown-item dropdown-content" href="{{url('/admin')}}">
+                                        Panel de Administrador
+                                    </a>
                                     @endif
                                     <a class="dropdown-item dropdown-content" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -55,7 +55,7 @@ return [
     */
 
     'storage' => [
-        'disk' => env('FILESYSTEM_DRIVER', 'public'),
+        'disk' => env('FILESYSTEM_DRIVER', 'images'),
     ],
 
     /*
@@ -144,7 +144,7 @@ return [
         ],
 
         'widgets' => [
-
+            'TCG\\Voyager\\Widgets\\UserDimmer'
         ],
 
     ],
@@ -181,7 +181,8 @@ return [
     |
     */
 
-    'primary_color' => '#22A7F0',
+    'primary_color' => '#dbab26',
+
 
     'show_dev_tips' => true, // Show development tip "How To Use:" in Menu and Settings
 

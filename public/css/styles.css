@@ -374,7 +374,8 @@ p {
 }
 .cover_img_product{
     overflow: hidden;
-    max-height: 94px;
+    max-height: 100px;
+    min-height: 100px;
 }
 .bg-title-page {
     width: 100%;

@@ -30,10 +30,10 @@ https://git-scm.com/download/win
 
 * Find laragon instalation directory:
 
-{Disk}:/{Laragon_instalation_directory}/www/
+{Disk}:/{Laragon_instalation_directory}/www/{your_name_project_folder}
 
 * Put Command:
-
+$ git init
 $ git clone https://github.com/GhostStf45/Restaurant-app.git
 
 ## 7. Install Composer modules
